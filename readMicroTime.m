@@ -1,4 +1,4 @@
-% [Trace, Filename] = readMicroTime
+% [Trace, Filename, FCSHeader] = readMicroTime
 % (A file selection UI window will pop up to allow the user to select a
 % .fcs file)
 % Note: 1. please put this .m file and AlbaV5FCSFileFormat.txt under the
@@ -6,7 +6,7 @@
 % 2. Trace is a cell array of struct, each element of which corresponds to
 % one channel. Trace{i}.MicroTimeData are in nanoseconds with single
 % precision.
-function [Trace, Filename] = readMicroTime
+function [Trace, Filename, FCSHeader] = readMicroTime
     %% Read the header
     FCSHeader = readHeader(strcat(fileparts(mfilename('fullpath')), ...
         filesep, 'AlbaV5FCSFileFormat.txt'), [], '.fcs');

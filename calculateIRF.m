@@ -1,3 +1,4 @@
+% calculateIRF(EarlyPulseOrLatePulse, TimeWindow)
 function calculateIRF(EarlyPulseOrLatePulse, TimeWindow)
     %% Read the header and micro-time data
     [Trace, Filename, FCSHeader] = readMicroTime;
@@ -18,6 +19,8 @@ function calculateIRF(EarlyPulseOrLatePulse, TimeWindow)
     %% Calculate IRF
     PhotonCounts = histcounts(Trace{1}.MicroTimeData, ...
         0 : (TimeWindow / ADCResolution) : TimeWindow);
+%     NormalizedPhotonCounts = PhotonCounts / sum(PhotonCounts);
+%     IRFProb = NormalizedPhotonCounts(HalfedTimeWindow);
     IRFProb = PhotonCounts(HalfedTimeWindow) / ...
         sum(PhotonCounts(HalfedTimeWindow));
     

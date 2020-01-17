@@ -14,7 +14,8 @@ function calculateIRF(EarlyPulseOrLatePulse, MicroTimeRange)
         TimeWindow = (ADCResolution / 2 + 1) : ADCResolution;
     elseif strcmpi(EarlyPulseOrLatePulse, 'whole') || ...
             strcmpi(EarlyPulseOrLatePulse, 'entire') || ...
-            strcmpi(EarlyPulseOrLatePulse, 'all')
+            strcmpi(EarlyPulseOrLatePulse, 'all') || ...
+            strcmpi(EarlyPulseOrLatePulse, 'both')
         TimeWindow = 1 : ADCResolution;
     else
         error('Please specify the microtime window.');

@@ -5,7 +5,7 @@ function calculateIRF(EarlyPulseOrLatePulse, TimeWindow)
     %% Determine parameters
     ADCResolution = double(FCSHeader.MaxMicroTimeResolution);
     if ~exist('TimeWindow', 'var') || isempty(TimeWindow)
-        TimeWindow = 50; % ns
+        TimeWindow = double(FCSHeader.MicroTimeRange); % ns
     end
     if strcmpi(EarlyPulseOrLatePulse, 'early')
         HalfedTimeWindow = 1 : (ADCResolution / 2);

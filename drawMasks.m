@@ -9,7 +9,7 @@ function SelectedPixelIndices = drawMasks(ImageMatrix)
             strcmpi(doDraw, 'yep') || strcmpi(doDraw, 't') || ...
             strcmpi(doDraw, 'true') || isempty(doDraw)
         Number = Number + 1;
-        NewArea{Number} = drawfreehand;
+        NewArea{Number} = drawrectangle;
         doDraw = input('Add one more? ', 's');
     end
     

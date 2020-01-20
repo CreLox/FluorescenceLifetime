@@ -3,14 +3,19 @@ function SelectedPixelIndices = drawMasks(ImageMatrix)
     h = figure;
     imshow(squeeze(ImageMatrix), []);
     
-    Mask = false(size(squeeze(ImageMatrix)));
+    Number = 0;
     doDraw = 'y';
     while strcmpi(doDraw, 'y') || strcmpi(doDraw, 'yes') || ...
             strcmpi(doDraw, 'yep') || strcmpi(doDraw, 't') || ...
             strcmpi(doDraw, 'true') || isempty(doDraw)
-        NewArea = drawfreehand;
-        Mask = Mask | NewArea.createMask;
+        Number = Number + 1;
+        NewArea{Number} = drawfreehand;
         doDraw = input('Add one more? ', 's');
+    end
+    
+    Mask = false(size(squeeze(ImageMatrix)));
+    for i = 1 : Number
+        Mask = Mask | NewArea{i}.createMask;
     end
     SelectedPixelIndices = find(Mask);
     

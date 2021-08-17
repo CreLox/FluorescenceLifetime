@@ -1,4 +1,4 @@
-% calculateIRFTransform(NormalizedIRF, TimeAxis, Omega)
+% IRFTransform = calculateIRFTransform(NormalizedIRF, TimeAxis, Omega)
 % Make sure that sum(NormalizedIRF) == 1
 function IRFTransform = calculateIRFTransform(NormalizedIRF, TimeAxis, ...
     Omega)

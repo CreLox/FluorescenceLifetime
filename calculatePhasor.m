@@ -2,6 +2,10 @@
 % IntensityThreshold, Omega, IRFTransform)
 function [PhasorG, PhasorS, PixelIndices] = calculatePhasor(FlimData, ...
     IntensityThreshold, Omega, IRFTransform)
+    if (~isnumeric(IntensityThreshold)) || (numel(IntensityThreshold) ~= 2)
+        error('`IntensityThreshold'' has to be an interval.');
+    end
+        
     Length = numel(FlimData.PixelDecayHistogram);
     PhasorG = zeros(1, Length);
     PhasorS = zeros(1, Length);
@@ -14,7 +18,8 @@ function [PhasorG, PhasorS, PixelIndices] = calculatePhasor(FlimData, ...
     
     parfor ii = 1 : Length
         Sum = sum(PixelDecayHistograms{ii});
-        if (Sum >= IntensityThreshold)
+        if (Sum >= min(IntensityThreshold)) && ...
+                (Sum <= max(IntensityThreshold))
             Real = CosSeries * PixelDecayHistograms{ii} / Sum;
             Imag = SinSeries * PixelDecayHistograms{ii} / Sum;
             PhasorG(ii) = real((Real + Imag * 1i) / IRFTransform);

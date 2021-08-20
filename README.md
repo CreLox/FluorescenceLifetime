@@ -1,3 +1,4 @@
+This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.
 ## "Deconvolution"
 As Knight and Selinger (1970) put it,
 > ... Without careful consideration of the nature of the problem, deconvolutlon as an information-improving device can easily become an exercise in self-delusion.

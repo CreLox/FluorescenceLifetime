@@ -41,6 +41,11 @@ function [FlimData, Image] = parseFlimData(TDFLIMFilePath, ...
         FlimData(ChannelNo).ChannelNumber = ChannelNo;
         FlimData(ChannelNo).ADCResolution = FlimProp.ADCResolution;
         FlimData(ChannelNo).TACTimeRange = FlimProp.TACTimeRange;
+        FlimData(ChannelNo).PixelDwellTime = FlimProp.PixelDwellTime;
+        FlimData(ChannelNo).MacroTimeClockFrequency = FlimProp.MacroTimeClockFrequency;
+        FlimData(ChannelNo).ActualDimensionUnit = FlimProp.CoordUnitType;
+        FlimData(ChannelNo).ActualFrameWidth = FlimProp.FrameWidth;
+        FlimData(ChannelNo).ActualFrameHeight = FlimProp.FrameHeight;
         FlimData(ChannelNo).PixelPhotonCountFilter = ...
             [min(PhotonCountFilter), max(PhotonCountFilter)];
         FlimData(ChannelNo).DecayHistogramTimeAxis = ...

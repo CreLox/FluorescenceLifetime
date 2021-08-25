@@ -81,20 +81,20 @@ function FlimProp = parseFlimProperties(TDFLIMFilePath)
     ImageProp = getImageProperties([FilePath, filesep, FileName, filesep, ...
         'dataProps', filesep, 'Core.xml']);
     
+    FlimProp.CoordUnitType = ImageProp.Children(find(strcmp({ImageProp.Children.Name},'CoordUnitType'))).Children.Data;
     DimensionIndex = find(strcmp({ImageProp.Children.Name},'Dimensions'));
 %     flimProp.timeSeriesCount = str2num(imageProp.Children(dimensionIndex).Children(find(strcmp({imageProp.Children(dimensionIndex).Children.Name},'TimeSeriesCount'))).Children.Data);
-    FlimProp.ChannelCount = str2num(ImageProp.Children(DimensionIndex).Children(find(strcmp({ImageProp.Children(DimensionIndex).Children.Name},'ChannelCount'))).Children.Data);
+%     FlimProp.ChannelCount = str2num(ImageProp.Children(DimensionIndex).Children(find(strcmp({ImageProp.Children(DimensionIndex).Children.Name},'ChannelCount'))).Children.Data);
 %     flimProp.frameCount = str2num(imageProp.Children(dimensionIndex).Children(find(strcmp({imageProp.Children(dimensionIndex).Children.Name},'FrameCount'))).Children.Data);
     FlimProp.FramePixelHeight = str2num(ImageProp.Children(DimensionIndex).Children(find(strcmp({ImageProp.Children(DimensionIndex).Children.Name},'FrameHeight'))).Children.Data);
     FlimProp.FramePixelWidth = str2num(ImageProp.Children(DimensionIndex).Children(find(strcmp({ImageProp.Children(DimensionIndex).Children.Name},'FrameWidth'))).Children.Data);
-    
-%     boundaryIndex = find(strcmp({imageProp.Children.Name},'Boundary'));
+    BoundaryIndex = find(strcmp({ImageProp.Children.Name},'Boundary'));
 %     flimProp.frameTop = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'FrameTop'))).Children.Data);
 %     flimProp.frameBottom = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'FrameBottom'))).Children.Data);
 %     flimProp.frameLeft = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'FrameLeft'))).Children.Data);
 %     flimProp.frameRight = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'FrameRight'))).Children.Data);
-%     flimProp.frameWidth = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'FrameWidth'))).Children.Data);
-%     flimProp.frameHeight = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'FrameHeight'))).Children.Data);
+     FlimProp.FrameWidth = str2num(ImageProp.Children(BoundaryIndex).Children(find(strcmp({ImageProp.Children(BoundaryIndex).Children.Name},'FrameWidth'))).Children.Data);
+     FlimProp.FrameHeight = str2num(ImageProp.Children(BoundaryIndex).Children(find(strcmp({ImageProp.Children(BoundaryIndex).Children.Name},'FrameHeight'))).Children.Data);
 %     flimProp.stackTop = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'StackTop'))).Children.Data);
 %     flimProp.stackBottom = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'StackBottom'))).Children.Data);
 %     flimProp.stackHeight = str2num(imageProp.Children(boundaryIndex).Children(find(strcmp({imageProp.Children(boundaryIndex).Children.Name},'StackHeight'))).Children.Data);
@@ -111,10 +111,8 @@ function FlimProp = parseFlimProperties(TDFLIMFilePath)
     PhotonCountSettingsIndex = find(strcmp({ImageProp.Children.Name},'PhotonCountingSettings'));
     FlimProp.ADCResolution = str2num(ImageProp.Children(PhotonCountSettingsIndex).Children(find(strcmp({ImageProp.Children(PhotonCountSettingsIndex).Children.Name},'AdcResolution'))).Children.Data);
     FlimProp.TACTimeRange = str2num(ImageProp.Children(PhotonCountSettingsIndex).Children(find(strcmp({ImageProp.Children(PhotonCountSettingsIndex).Children.Name},'TacTimeRange'))).Children.Data);
-%     flimProp.macroTimeClockFrequency = str2num(imageProp.Children(photonCountSettingsIndex).Children(find(strcmp({imageProp.Children(photonCountSettingsIndex).Children.Name},'MacroTimeClockFrequency'))).Children.Data);
-%     
-%     flimProp.coordUnitType = imageProp.Children(find(strcmp({imageProp.Children.Name},'CoordUnitType'))).Children.Data;
-%     flimProp.pixelDwellTime = str2num(imageProp.Children(find(strcmp({imageProp.Children.Name},'PixelDwellTime'))).Children.Data);
+    FlimProp.MacroTimeClockFrequency = str2num(ImageProp.Children(PhotonCountSettingsIndex).Children(find(strcmp({ImageProp.Children(PhotonCountSettingsIndex).Children.Name},'MacroTimeClockFrequency'))).Children.Data);
+    FlimProp.PixelDwellTime = str2num(ImageProp.Children(find(strcmp({ImageProp.Children.Name},'PixelDwellTime'))).Children.Data);
 %     flimProp.pixelIntervalTime = str2num(imageProp.Children(find(strcmp({imageProp.Children.Name},'PixelIntervalTime'))).Children.Data);
 %     flimProp.lineIntervalTime = str2num(imageProp.Children(find(strcmp({imageProp.Children.Name},'LineIntervalTime'))).Children.Data);
 %     flimProp.frameIntervalTime = str2num(imageProp.Children(find(strcmp({imageProp.Children.Name},'FrameIntervalTime'))).Children.Data);

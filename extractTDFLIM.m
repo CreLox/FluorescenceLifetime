@@ -39,6 +39,7 @@ function [FlimData, Image] = parseFlimData(TDFLIMFilePath, ...
     
     for ChannelNo = 1 : FlimProp.ChannelCount
         FlimData(ChannelNo).ExcludePixelIndices = ExcludePixelIndices;
+        FlimData(ChannelNo).TotalChannelNumber = FlimProp.ChannelCount;
         FlimData(ChannelNo).ChannelNumber = ChannelNo;
         FlimData(ChannelNo).ADCResolution = FlimProp.ADCResolution;
         FlimData(ChannelNo).TACTimeRange = FlimProp.TACTimeRange;

@@ -27,9 +27,6 @@ function [FlimData, Image, FileName] = extractTDFLIM(PhotonCountFilter, ...
     fprintf('%s\n', FileName);
 end
 
-%--------------------------------------------
-%--------------------------------------------
-
 function [FlimData, Image] = parseFlimData(TDFLIMFilePath, ...
     PhotonCountFilter, ExcludePixelIndices)
     FlimProp = parseFlimProperties(TDFLIMFilePath);
@@ -81,9 +78,6 @@ function [FlimData, Image] = parseFlimData(TDFLIMFilePath, ...
         % convert to PDF
     end
 end
-
-%--------------------------------------------
-%--------------------------------------------
 
 function FlimProp = parseFlimProperties(TDFLIMFilePath)
     [FilePath, FileName, ~] = fileparts(TDFLIMFilePath);

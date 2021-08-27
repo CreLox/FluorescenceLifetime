@@ -43,7 +43,7 @@ FittingOption = 'Fitting2S';
 [FlimData, ~, FileName] = extractTDFLIM(PhotonCountFilter, OutlierIdx);
 Results = fitFLIM(FlimData, IRFProb, FittingOption, 1)
 
-EventCountPerMicron2 = eventCountPerMicron2(FlimData, @(x) median(x))
+EventCountPerPixel = eventCountPer('Pixel', FlimData, @(x) median(x))
 A0WeightedMean = harmmeanWeighted([Results.OptimX(2), Results.OptimX(4)], [Results.OptimX(1), Results.OptimX(3)])
 TotalIntensityWeightedMean = Results.OptimX(1) * Results.OptimX(2) + Results.OptimX(3) * Results.OptimX(4)
 

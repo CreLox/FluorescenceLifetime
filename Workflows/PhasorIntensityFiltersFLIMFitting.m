@@ -9,13 +9,13 @@ axis on;
 
 %% Step 2
 f2 = figure(2);
-PhotonCountFilter = [210, 443]; % <- Change this accordingly
+PhotonCountFilter = [165, 312]; % <- Change this accordingly
 imshowThresholding(Image, PhotonCountFilter, f2);
 axis on;
 
 %% Step 3: phasor filtering
 close(f2);
-load('mirror_irf.mat'); % <- Change this accordingly
+load('ludox_488nm_ch2.mat'); % <- Change this accordingly
 [PhasorG, PhasorS, PixelIndices] = calculatePhasor(FlimDataPre, ...
     PhotonCountFilter, Omega, IRFTransform);
 Outlier = (PhasorS < (PhasorG - 0.2));
@@ -33,6 +33,9 @@ OutlierMapping(OutlierIdx) = true;
 imshow(OutlierMapping);
 axis on;
 
+% The wait is long - play Handel's "Hallelujah" when this step finishes
+load handel.mat; soundsc(y(1000:16500)); clear Fs y;
+
 %% Step 4: extra pixel-filtering
 OutlierIdx = [OutlierIdx, drawMasks(h)];
 
@@ -43,7 +46,7 @@ FittingOption = 'Fitting2S';
 [FlimData, ~, FileName] = extractTDFLIM(PhotonCountFilter, OutlierIdx);
 Results = fitFLIM(FlimData, IRFProb, FittingOption, 1)
 
-EventCountPerPixel = eventCountPer('Pixel', FlimData, @(x) median(x))
+MedianEventCountPerPixel = eventCountPer('Pixel', FlimData, @(x) median(x))
 A0WeightedMean = harmmeanWeighted([Results.OptimX(2), Results.OptimX(4)], [Results.OptimX(1), Results.OptimX(3)])
 TotalIntensityWeightedMean = Results.OptimX(1) * Results.OptimX(2) + Results.OptimX(3) * Results.OptimX(4)
 

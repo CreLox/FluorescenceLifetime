@@ -6,6 +6,7 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
 
 ## Principles
 At long last, GitHub Markdown now supports [math expressions](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions) natively (from May 2022)!
+
 To demonstrate how fluorescence lifetime measurements can quantify the FRET efficiency, consider a large number of donor fluorophore molecules with a lifetime of $τ_0$. In the absence of acceptor fluorophores, the exponential decay $D_0$ of donor fluorescence after pulsed excitation at time zero is
 $$D_0(t) = Ce^{-t/τ_0}.$$
 The total donor fluorescence signal (which can be measured through FLIM) is
@@ -22,9 +23,11 @@ Because the fluorescence lifetime in the absence of quenching is an intrinsic pr
 
 ## A note on deconvolution
 As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739) put it,
+
 > ... Without careful consideration of the nature of the problem, deconvolution as an information-improving device can easily become an exercise in self-delusion.
 
 The FLIM signal is derived from instrument response function (IRF) $\circledast$ the (multi-component) exponential decay $D(t)$ + noise. However, the multi-component exponential fit is intrinsically flexibile. Regarding this, [Grinvald and Steinberg (1974)](https://www.sciencedirect.com/science/article/pii/0003269774903121) raised two very educational examples which are reproduced here:
+
 <img width="810" alt="image" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">
 
 However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component (see the section above) should be conserved, regardless of the actual fitting parameters (because both $S$, the area underneath the curve, and $D(0)$, the intersection point at $t = 0$, should be close for all **good** fits):

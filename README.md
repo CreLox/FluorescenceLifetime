@@ -21,11 +21,11 @@ and the total donor fluorescence signal becomes $S = Cτ$. Therefore, the FRET e
 $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}.$$
 Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component. 
 
-## General workflow
-
-## "Deconvolution"
+## A note on deconvolution
 As Knight and Selinger (1970) put it,
 > ... Without careful consideration of the nature of the problem, deconvolutlon as an information-improving device can easily become an exercise in self-delusion.
+
+## General workflow
 
 ## Prepulse and afterpulse in the measured instrument response function (IRF)
 Our current protocol uses a mirror on the sample plane to measure the IRF. The emission filter is removed and internal reflection at lenses is observed as a prepulse in the measured IRF. This prepulse is an artifact due to the removal of the emission filter and should be manually removed in postprocessing. Additionally, the avalanche photodiode (APD) detector has an afterpulse feature (see, for example, [Ziarkash et al., 2018](https://www.nature.com/articles/s41598-018-23398-z)). This is intrinsic to the detector and an integral part of the IRF that should NOT be removed in postprocessing.

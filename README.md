@@ -19,11 +19,17 @@ The **effective lifetime** of the donor fluorophore (which can be measured throu
 $$τ=\frac{τ_0 τ'}{τ_0+τ'},$$
 and the total donor fluorescence signal becomes $S = Cτ$. Therefore, the FRET efficiency
 $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}.$$
-Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component. 
+Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component. 
 
 ## A note on deconvolution
 As Knight and Selinger (1970) put it,
 > ... Without careful consideration of the nature of the problem, deconvolutlon as an information-improving device can easily become an exercise in self-delusion.
+
+Regarding this, [Grinvald and SteinBerg (1974)](https://www.sciencedirect.com/science/article/pii/0003269774903121) raised two very educational examples which illustrate the intrinsic flexibility of a multi-component exponential fit and are reproduced here:
+<img width="810" alt="image" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">
+
+However, the average lifetime of a multi-component exponential fit weighted by the corresponding $C$ of each component (see the section above) should be conserved:
+$$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
 
 ## General workflow
 

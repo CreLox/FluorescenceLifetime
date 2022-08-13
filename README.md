@@ -18,7 +18,7 @@ The **effective lifetime** of the donor fluorophore (which can be measured throu
 $$τ=\frac{τ_0 τ‘}{τ_0+τ’},$$
 and the total donor fluorescence signal becomes $S = Cτ$. Therefore, the FRET efficiency
 $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}.$$
-Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see the following section).
+Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see the section below).
 
 ## A note on deconvolution
 As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739) put it,

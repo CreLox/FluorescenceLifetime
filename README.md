@@ -4,6 +4,9 @@
 ## Prerequisite
 This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.
 
+## Principles
+(At long last, GitHub Markdown now supports [math expressions](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)!)
+
 ## General workflow
 
 ## "Deconvolution"

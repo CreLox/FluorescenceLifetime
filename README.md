@@ -1,4 +1,4 @@
-## Knowledgebase on FC(C)S/FLIM
+## FC(C)S/FLIM knowledgebase
 [PicoQuant knowledgebase](https://www.picoquant.com/scientific/technical-and-application-notes/category/technical_notes_techniques_and_methods/P8)
 
 ## Prerequisite

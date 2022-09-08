@@ -16,6 +16,7 @@ function SelectedPixelIndices = drawMasks(Image)
     while strcmpi(doDraw, 'y') || strcmpi(doDraw, 'yes') || ...
             strcmpi(doDraw, 'yep') || strcmpi(doDraw, 't') || ...
             strcmpi(doDraw, 'true') || isempty(doDraw)
+        figure(h); % set h as the active figure
         Number = Number + 1;
         NewArea{Number} = drawrectangle;
         doDraw = input('Add one more? ', 's');

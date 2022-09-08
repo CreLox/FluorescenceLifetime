@@ -14,16 +14,28 @@ function [PhasorG, PhasorS, PixelIndices] = calculatePhasor(FlimData, ...
     SinSeries = sin(Omega * FlimData.DecayHistogramTimeAxis);
     PixelDecayHistograms = FlimData.PixelDecayHistogram;
     
-    parpool(feature('numcores'));
-    
-    parfor ii = 1 : Length
-        Sum = sum(PixelDecayHistograms{ii});
-        if (Sum >= min(IntensityThreshold)) && ...
-                (Sum <= max(IntensityThreshold))
-            Real = CosSeries * PixelDecayHistograms{ii} / Sum;
-            Imag = SinSeries * PixelDecayHistograms{ii} / Sum;
-            PhasorG(ii) = real((Real + Imag * 1i) / IRFTransform);
-            PhasorS(ii) = imag((Real + Imag * 1i) / IRFTransform);
+    if canUseGPU
+        parpool(feature('numcores'));
+        parfor ii = 1 : Length
+            Sum = sum(PixelDecayHistograms{ii});
+            if (Sum >= min(IntensityThreshold)) && ...
+                    (Sum <= max(IntensityThreshold))
+                Real = CosSeries * PixelDecayHistograms{ii} / Sum;
+                Imag = SinSeries * PixelDecayHistograms{ii} / Sum;
+                PhasorG(ii) = real((Real + Imag * 1i) / IRFTransform);
+                PhasorS(ii) = imag((Real + Imag * 1i) / IRFTransform);
+            end
+        end
+    else
+        for ii = 1 : Length
+            Sum = sum(PixelDecayHistograms{ii});
+            if (Sum >= min(IntensityThreshold)) && ...
+                    (Sum <= max(IntensityThreshold))
+                Real = CosSeries * PixelDecayHistograms{ii} / Sum;
+                Imag = SinSeries * PixelDecayHistograms{ii} / Sum;
+                PhasorG(ii) = real((Real + Imag * 1i) / IRFTransform);
+                PhasorS(ii) = imag((Real + Imag * 1i) / IRFTransform);
+            end
         end
     end
     
@@ -32,5 +44,7 @@ function [PhasorG, PhasorS, PixelIndices] = calculatePhasor(FlimData, ...
     PhasorS(VoidIdx) = [];
     PixelIndices(VoidIdx) = [];
     
-    delete(gcp('nocreate'));
+    if canUseGPU
+        delete(gcp('nocreate'));
+    end
 end

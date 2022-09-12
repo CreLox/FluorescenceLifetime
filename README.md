@@ -43,4 +43,4 @@ Our current protocol uses a mirror on the sample plane to measure the IRF. The e
 Alba is a laser scanning microscopy setup. The amplification factor is determined by the setup and the objective but not by the scale of the FOV set for scanning. Therefore, the power of the excitation light on the sample plane and the corresponding area on the sample plane of the APD detector are not affected by the FOV set for scanning. Because the pixel dwell time is fixed, the event count per **pixel** is directly comparable, regardless of the scale of the FOV set for scanning.
 
 ## Acknowledgments
-I would like to thank Dr. Damon Hoff (from the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the operations manual and his ground-laying contributions to scripts related to the I/O of data files.
+I would like to thank Dr. J. Damon Hoff (from the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts related to the I/O of data files.

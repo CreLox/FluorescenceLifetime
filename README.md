@@ -34,7 +34,7 @@ However, the average lifetime of a **good** multi-component exponential fit weig
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
 
 ## General workflow
-The [workflow script](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m) demonstrates all the steps in a typical data analysis: intensity thresholding, phasor plot-based filtering, region exclusion (manual correction), and fitting. Use ``Run Section`` to perform data analysis in a guided, step-by-step manner.
+The [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m) demonstrates all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), phasor plot-based pixel filtering, region exclusion (manual correction), and fitting. Use ``Run Section`` in MATLAB to perform your analysis in a guided, step-by-step manner.
 
 ## Prepulse and afterpulse in the measured IRF
 Our current protocol uses a mirror on the sample plane to measure the IRF. The emission filter is removed and internal reflection at lenses is observed as a prepulse in the measured IRF. This prepulse is an artifact due to the removal of the emission filter and should be manually removed in postprocessing. Additionally, the avalanche photodiode (APD) detector has an afterpulse feature (see, for example, [Ziarkash et al., 2018](https://www.nature.com/articles/s41598-018-23398-z)). This is intrinsic to the detector and an integral part of the IRF that should NOT be removed in postprocessing.

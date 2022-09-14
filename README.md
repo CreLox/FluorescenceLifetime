@@ -1,8 +1,11 @@
-## FC(C)S/FLIM knowledgebase
+## Introduction on FC(C)S/FLIM
 [PicoQuant knowledgebase](https://www.picoquant.com/scientific/technical-and-application-notes/category/technical_notes_techniques_and_methods/P8)
 
 ## Prerequisite
 This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.
+
+## General workflow
+The [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m) demonstrates all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), phasor plot-based pixel filtering, region exclusion (manual correction), and fitting. Use ``Run Section`` in MATLAB to perform your analysis in a guided, step-by-step manner.
 
 ## Principles
 At long last, GitHub Markdown now supports [math expressions](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions) natively (from May 2022)!
@@ -32,9 +35,6 @@ The FLIM signal is derived from the instrument response function (IRF) $\circled
 
 However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component (see the section above) should be conserved, regardless of the actual fitting parameters (because both $S$, the area underneath the curve, and $D(0)$, the intersection point at $t = 0$, should be close for all **good** fits):
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
-
-## General workflow
-The [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m) demonstrates all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), phasor plot-based pixel filtering, region exclusion (manual correction), and fitting. Use ``Run Section`` in MATLAB to perform your analysis in a guided, step-by-step manner.
 
 ## Prepulse and afterpulse in the measured IRF
 Our current protocol uses a mirror on the sample plane to measure the IRF. The emission filter is removed and internal reflection at lenses is observed as a prepulse in the measured IRF. This prepulse is an artifact due to the removal of the emission filter and should be manually removed in postprocessing. Additionally, the avalanche photodiode (APD) detector has an afterpulse feature (see, for example, [Ziarkash et al., 2018](https://www.nature.com/articles/s41598-018-23398-z)). This is intrinsic to the detector and an integral part of the IRF that should NOT be removed in postprocessing.

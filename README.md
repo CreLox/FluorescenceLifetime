@@ -1,6 +1,8 @@
 ## Introduction on FC(C)S/FLIM
 [PicoQuant knowledgebase](https://www.picoquant.com/scientific/technical-and-application-notes/category/technical_notes_techniques_and_methods/P8)
 
+[Malacrida et al., 2021](https://www.annualreviews.org/doi/10.1146/annurev-biophys-062920-063631) on the phasor plot
+
 ## Prerequisite
 This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.
 

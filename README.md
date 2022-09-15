@@ -51,11 +51,11 @@ $$\int_0^{+\infty} R(t)dt = \int_{t=0}^{+\infty} (\int_{T=0}^{t} I(T)D(t-T)dT)dt
 
 and the numerator
 
-$$int_0^{+\infty} e^{i \omega t}R(t)dt = int_0^{+\infty} e^{i \omega t}(I(t) \circledast D(t))dt = int_0^{+\infty} e^{i \omega t}I(t)dt \cdot int_0^{+\infty} e^{i \omega t}D(t)dt.$$
+$$\int_0^{+\infty} e^{i \omega t}R(t)dt = \int_0^{+\infty} e^{i \omega t}(I(t) \circledast D(t))dt = \int_0^{+\infty} e^{i \omega t}I(t)dt \cdot \int_0^{+\infty} e^{i \omega t}D(t)dt.$$
 
 Therefore,
 
-$$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (int_0^{+\infty} e^{i \omega t}I(t)dt)$$
+$$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (\int_0^{+\infty} e^{i \omega t}I(t)dt)$$
 
 The ```calculateIRFTransform``` function calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photon $n  (n = 1, 2, ..., N$) is $t_n$. The phasor transformation of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$

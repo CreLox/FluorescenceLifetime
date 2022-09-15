@@ -29,7 +29,7 @@ wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence l
 ## Phasor transformation and autofluoresence filtering
 The phasor transformation is a normalized Fourier transformation that converts time-resolved emission data into a single point in the complex plane. For a donor fluorophore with an exponential decay $D(t) = Ce^{-t/τ}$ after pulsed excitation at time zero and any positive $\omega$ with a dimension of $s^{-1}$, the phasor transformation of $D(t)$ is defined as
 $$\mathcal{P}(\omega, D) = (\int_0^{+\infty} e^{i \omega t}D(t)dt)/(\int_0^{+\infty} D(t)dt) = \frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i.$$
-The corresponding phasor $\frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i$ on the complex plane $G+Si \rightarrow (G, S), G, S \in \mathbb R$, is distributed on the semicircle
+The corresponding phasor $\frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i$ on the complex plane $G+Si \rightarrow (G, S), G, S \in \mathbb R$, is distributed on the **universal semicircle**
 $$(G-1/2)^2+S^2 = 1/4, S>0.$$
 For an ensemble of fluorophores with different exponential decay lifetimes, it is easy to derive that the phasor is a linear combination of the phasors of the composing species $\mathcal{P}(\omega, D_m), m = 1, 2, ..., M$, weighted by their corresponding **fractional intensity**:
 

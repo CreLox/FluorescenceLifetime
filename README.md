@@ -55,7 +55,7 @@ $$\int_0^{+\infty} e^{i \omega t}R(t)dt = \int_0^{+\infty} e^{i \omega t}(I(t) \
 
 Therefore,
 
-$$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (\int_0^{+\infty} e^{i \omega t}I(t)dt)$$
+$$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (\int_0^{+\infty} e^{i \omega t}I(t)dt).$$
 
 The ```calculateIRFTransform``` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRFTransform.m) calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For the actual discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photons $n, n = 1, 2, ..., N$, is $t_n$. The phasor transformation of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$

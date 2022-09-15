@@ -26,7 +26,7 @@ and the total donor fluorescence signal becomes $S = Cτ$. Therefore, the FRET e
 $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}(=\frac{1}{(r/R_0)^6+1}),$$
 wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see the section below).
 
-## Excluding autofluoresence pixels based on the phasor transformation
+## Phasor transformation and autofluoresence filtering
 The phasor transformation is a normalized Fourier transformation that converts time-resolved emission data into a single point in the complex plane. For a donor fluorophore with an exponential decay $D(t) = Ce^{-t/τ}$ after pulsed excitation at time zero and any positive $\omega$ with a dimension of $s^{-1}$, the phasor transformation of $D(t)$ is defined as
 $$\mathcal{P}(\omega, D) = (\int_0^{+\infty} e^{i \omega t}D(t)dt)/(\int_0^{+\infty} D(t)dt) = \frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i.$$
 For discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photon $n  (n = 1, 2, ..., N$) is $t_n$. The phasor transformation of the series is then
@@ -37,18 +37,22 @@ For an ensemble of fluorophores with different exponential decay lifetimes, it i
 
 $$\mathcal{P}(\omega, \sum_{m=0}^{M} D_m) = \sum_{m=0}^{M} (\mathcal{P}(\omega, D_m) \cdot C_m\tau_m / \sum_{l=0}^{M} C_l\tau_l ).$$
 
-Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is always on or within the convex hull defined by the phasor(s) of all composing species and is therefore on or within the semicircle. The simplest case wherein the ensemble contains two species with various lifetimes are illustrated below.
+Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is always within the convex hull defined by the phasor(s) of all composing species and is therefore on or within the semicircle. The simplest case wherein the ensemble contains two species with various lifetimes is illustrated below.
 
 <p align="center">
   <img alt="image" src="https://user-images.githubusercontent.com/18239347/190379906-1c6369fc-a4de-4ede-980f-e18dc6e6faea.png">
 </p>
+
+The actual FLIM signal $R(t) =$ the instrument response function (IRF) $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transformation of the raw time-resolved emission data $R(t)$ is then
+
+$$\mathcal{P}(\omega, R) = (\int_0^{+\infty} e^{i \omega t}R(t)dt)/(\int_0^{+\infty} R(t)dt).$$
 
 ## A note on the multi-component exponential fit
 As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739) put it,
 
 > ... Without careful consideration of the nature of the problem, deconvolution as an information-improving device can easily become an exercise in self-delusion.
 
-The FLIM signal is derived from the instrument response function (IRF) $\circledast$ the (multi-component) exponential decay $D(t)$ + noise. However, the multi-component exponential fit is intrinsically flexibile. Regarding this, [Grinvald and Steinberg (1974)](https://www.sciencedirect.com/science/article/pii/0003269774903121) raised two very educational examples which are reproduced here:
+The multi-component exponential fit is intrinsically flexibile. Regarding this, [Grinvald and Steinberg (1974)](https://www.sciencedirect.com/science/article/pii/0003269774903121) raised two very educational examples which are reproduced here:
 
 <p align="center">
   <img width="810" alt="image" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">

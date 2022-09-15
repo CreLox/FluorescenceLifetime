@@ -16,7 +16,7 @@ To demonstrate how fluorescence lifetime measurements can quantify the FRET effi
 $$D_0(t) = Ce^{-t/τ_0}.$$
 The total donor fluorescence signal (which can be measured through FLIM) is
 $$S_0=\int_0^{+\infty} D_0(t)dt = Cτ_0,$$
-wherein $C$ is a constant determined by the total number and properties of fluorophores, as well as the imaging setup. Without altering any of these conditions, in the presence of acceptor fluorophores and FRET, the possibility that an excited fluorophore stays excited (has not relaxed to the ground state either through the fluorescence-emitting route or the FRET-quenching route) at time $t$ is
+wherein the pre-exponential factor $C$ is a constant determined by the total number and properties of fluorophores, as well as the imaging setup. Without altering any of these conditions, in the presence of acceptor fluorophores and FRET, the possibility that an excited fluorophore stays excited (has not relaxed to the ground state either through the fluorescence-emitting route or the FRET-quenching route) at time $t$ is
 $$P=e^{-(1/τ_0 +1/τ')t},$$
 wherein $τ'$ ( $=(r/R_0)^6τ_0$; see the derivation of equation 15.2.27 [here](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Time_Dependent_Quantum_Mechanics_and_Spectroscopy_(Tokmakoff)/15%3A_Energy_and_Charge_Transfer/15.02%3A_Forster_Resonance_Energy_Transfer_(FRET))) is the time parameter of FRET (note: although an excited fluorophore can only relax through one route, the two stochastic processes – fluorescence-emitting and FRET-quenching – are independent). Therefore, in the presence of acceptor fluorophores and FRET, the new decay dynamics $D$ of donor fluorescence becomes
 $$D(t)=Ce^{-(1/τ_0 +1/τ')t}=Ce^{-(τ_0+τ')t/(τ_0 τ')},$$
@@ -25,6 +25,10 @@ $$τ=\frac{τ_0 τ'}{τ_0+τ'},$$
 and the total donor fluorescence signal becomes $S = Cτ$. Therefore, the FRET efficiency
 $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}(=\frac{1}{(r/R_0)^6+1}),$$
 wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see the section below).
+
+## Using the phasor transformation to exclude autofluoresence pixels 
+The phasor transformation is a normalized Fourier transformation that converts time-resolved emission data into a single point in the complex plane. For a donor fluorophore with an exponential decay $D(t) = Ce^{-t/τ}$ after pulsed excitation at time zero, the phasor transformation of $D(t)$ is defined as
+$$\mathcal{P}(\omega, D) = (\int_0^{+\infty} e^{i \omega t}D(t)dt)/(\int_0^{+\infty} D(t)dt) = \frac{1}{1+\omega^2\tau^2} + \frac{i\omega\tau}{1+\omega^2\tau^2}.$$
 
 ## A note on the multi-component exponential fit
 As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739) put it,

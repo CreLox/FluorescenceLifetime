@@ -64,7 +64,7 @@ A critical application of the phasor plot is to identify pixels with mostly auto
 
 ## A note on the multi-component exponential fit
 
-> ... Without careful consideration of the nature of the problem, deconvolution as an information-improving device can easily become an exercise in self-delusion. —[Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739)
+> ... Without careful consideration of the nature of the problem, deconvolution as an information-improving device can easily become an exercise in self-delusion. — [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739)
 
 The multi-component exponential fit is intrinsically flexible. Regarding this, [Grinvald and Steinberg (1974)](https://www.sciencedirect.com/science/article/pii/0003269774903121) raised two educational examples which are reproduced here:
 

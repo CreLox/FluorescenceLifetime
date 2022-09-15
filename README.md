@@ -43,16 +43,19 @@ Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is alway
   <img alt="image" src="https://user-images.githubusercontent.com/18239347/190379906-1c6369fc-a4de-4ede-980f-e18dc6e6faea.png">
 </p>
 
-The actual FLIM signal $R(t) =$ the instrument response function (IRF) $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transformation of the raw time-resolved emission data $R(t)$ is then
+The actual FLIM signal $R(t) =$ the normalized instrument response function (IRF) $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transformation of the raw time-resolved emission data $R(t)$ is then
 
-$$\mathcal{P}(\omega, R) = (\int_0^{+\infty} e^{i \omega t}R(t)dt)/(\int_0^{+\infty} R(t)dt).$$
+$$\mathcal{P}(\omega, R) = (\int_0^{+\infty} e^{i \omega t}R(t)dt)/(\int_0^{+\infty} R(t)dt),$$
+
+wherein the denominator
+
+$$\int_0^{+\infty} R(t)dt = \int_{t=0}^{+\infty} (\int_{T=0}^{t} I(T)D(t-T)dT)dt = \int_{T=0}^{+\infty} I(T)(\int_{t=T}^{\infty} D(t-T)dt)dT = (\int_{T=0}^{+\infty} I(T)dT)(\int_{t=0}^{\infty} D(t)dt) = (\int_{t=0}^{\infty} D(t)dt).
 
 ## A note on the multi-component exponential fit
-As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739) put it,
 
-> ... Without careful consideration of the nature of the problem, deconvolution as an information-improving device can easily become an exercise in self-delusion.
+> ... Without careful consideration of the nature of the problem, deconvolution as an information-improving device can easily become an exercise in self-delusion. —[Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739)
 
-The multi-component exponential fit is intrinsically flexibile. Regarding this, [Grinvald and Steinberg (1974)](https://www.sciencedirect.com/science/article/pii/0003269774903121) raised two very educational examples which are reproduced here:
+The multi-component exponential fit is intrinsically flexibile. Regarding this, [Grinvald and Steinberg (1974)](https://www.sciencedirect.com/science/article/pii/0003269774903121) raised two educational examples which are reproduced here:
 
 <p align="center">
   <img width="810" alt="image" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">

@@ -29,7 +29,7 @@ wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence l
 ## Excluding autofluoresence pixels based on the phasor transformation
 The phasor transformation is a normalized Fourier transformation that converts time-resolved emission data into a single point in the complex plane. For a donor fluorophore with an exponential decay $D(t) = Ce^{-t/τ}$ after pulsed excitation at time zero and any positive $\omega$ with a dimension of $s^{-1}$, the phasor transformation of $D(t)$ is defined as
 $$\mathcal{P}(\omega, D) = (\int_0^{+\infty} e^{i \omega t}D(t)dt)/(\int_0^{+\infty} D(t)dt) = \frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i.$$
-For discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of photon $n  (n = 1, 2, ..., N$) is $t_n$. The phasor transformation of the series is then
+For discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photon $n  (n = 1, 2, ..., N$) is $t_n$. The phasor transformation of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$
 The corresponding phasor $\frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i$ on the complex plane $G+Si \rightarrow (G, S), G, S \in \mathbb R$, is distributed on the semicircle
 $$(G-1/2)^2+S^2 = 1/4, S>0.$$
@@ -38,6 +38,7 @@ For an ensemble of fluorophores with different exponential decay lifetimes, it i
 $$\mathcal{P}(\omega, \sum_{m=0}^{M} D_m) = \sum_{m=0}^{M} (\mathcal{P}(\omega, D_m) \cdot C_m\tau_m / \sum_{l=0}^{M} C_l\tau_l ).$$
 
 Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is always on or within the convex hull defined by the phasor(s) of all composing species and is therefore on or within the semicircle. The simplest case wherein the ensemble contains two species with various lifetimes are illustrated below.
+
 ![EnsemblePhasor](https://user-images.githubusercontent.com/18239347/190379906-1c6369fc-a4de-4ede-980f-e18dc6e6faea.png)
 
 ## A note on the multi-component exponential fit

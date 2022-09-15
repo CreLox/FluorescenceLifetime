@@ -39,7 +39,9 @@ $$\mathcal{P}(\omega, \sum_{m=0}^{M} D_m) = \sum_{m=0}^{M} (\mathcal{P}(\omega, 
 
 Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is always on or within the convex hull defined by the phasor(s) of all composing species and is therefore on or within the semicircle. The simplest case wherein the ensemble contains two species with various lifetimes are illustrated below.
 
-<img alt="image" align="center" src="https://user-images.githubusercontent.com/18239347/190379906-1c6369fc-a4de-4ede-980f-e18dc6e6faea.png">
+<p align="center">
+  <img alt="image" src="https://user-images.githubusercontent.com/18239347/190379906-1c6369fc-a4de-4ede-980f-e18dc6e6faea.png">
+</p>
 
 ## A note on the multi-component exponential fit
 As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739) put it,
@@ -48,7 +50,9 @@ As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pi
 
 The FLIM signal is derived from the instrument response function (IRF) $\circledast$ the (multi-component) exponential decay $D(t)$ + noise. However, the multi-component exponential fit is intrinsically flexibile. Regarding this, [Grinvald and Steinberg (1974)](https://www.sciencedirect.com/science/article/pii/0003269774903121) raised two very educational examples which are reproduced here:
 
-<img width="810" alt="image" align="center" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">
+<p align="center">
+  <img width="810" alt="image" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">
+</p>
 
 However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component (see the section above) should be conserved, regardless of the actual fitting parameters (because both $S$, the area underneath the curve, and $D(0)$, the intersection point at $t = 0$, should be close for all **good** fits):
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$

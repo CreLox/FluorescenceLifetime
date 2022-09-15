@@ -32,7 +32,7 @@ $$\mathcal{P}(\omega, D) = (\int_0^{+\infty} e^{i \omega t}D(t)dt)/(\int_0^{+\in
 For discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of photon $n$ ($n = 1, 2, 3, ..., N$) is $t_n$. The phasor transformation of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$
 The corresponding point $\frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i$ on the complex plane $G+Si \rightarrow (G, S), G, S \in \mathbb R$, is distributed on the semicircle
-$$(G-1/2)^2+S^2 = 1/4, G, S>0.$
+$$(G-1/2)^2+S^2 = 1/4, G, S>0.$$
 
 ## A note on the multi-component exponential fit
 As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739) put it,

@@ -33,9 +33,12 @@ For discrete time-resolved emission data, suppose that the arrival micro-time (a
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$
 The corresponding phasor $\frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i$ on the complex plane $G+Si \rightarrow (G, S), G, S \in \mathbb R$, is distributed on the semicircle
 $$(G-1/2)^2+S^2 = 1/4, S>0.$$
-For an ensemble of fluorophores with different exponential decay lifetimes, the phasor is a linear combination of the phasors of the composing species $\mathcal{P}(\omega, D_m), m = 1, 2, ..., M$ weighted by their corresponding **fractional intensity**:
+For an ensemble of fluorophores with different exponential decay lifetimes, it is easy to derive that the phasor is a linear combination of the phasors of the composing species $\mathcal{P}(\omega, D_m), m = 1, 2, ..., M$, weighted by their corresponding **fractional intensity**:
 
 $$\mathcal{P}(\omega, \sum_{m=0}^{M} D_m) = \sum_{m=0}^{M} (\mathcal{P}(\omega, D_m) \cdot C_m\tau_m / \sum_{l=0}^{M} C_l\tau_l ).$$
+
+Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is always on or within the convex hull defined by the phasor(s) of all composing species and is therefore on or within the semicircle. The simplest case wherein the ensemble contains two species with various lifetimes are illustrated below.
+![EnsemblePhasor](https://user-images.githubusercontent.com/18239347/190379906-1c6369fc-a4de-4ede-980f-e18dc6e6faea.png)
 
 ## A note on the multi-component exponential fit
 As [Knight and Selinger (1971)](https://www.sciencedirect.com/science/article/pii/0584853971800739) put it,

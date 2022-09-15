@@ -57,8 +57,10 @@ Therefore,
 
 $$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (\int_0^{+\infty} e^{i \omega t}I(t)dt)$$
 
-The ```calculateIRFTransform``` function calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photon $n  (n = 1, 2, ..., N$) is $t_n$. The phasor transformation of the series is then
+The ```calculateIRFTransform``` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRFTransform.m) calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For the actual discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photon $n  (n = 1, 2, ..., N$) is $t_n$. The phasor transformation of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$
+
+A critical application of the phasor plot is to identify pixels with mostly autofluorescence, without performing tedious fitting pixel by pixel. This is mainly due to the fact that autofluorescent substances in mammalian organelles typically features a short lifetime compared to optimized fluorescent proteins chosen for the FLIM experiment. Reflected on the phasor plot, the phasor transformation of time-resolved emission data registered to pixels with mostly autofluorescence is well separated on the complex plane from the phasor transformation of time-resolved emission data registered to pixels with signals originated from actual fluorescent proteins.
 
 ## A note on the multi-component exponential fit
 

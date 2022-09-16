@@ -26,8 +26,8 @@ and the total donor fluorescence signal becomes $S = Cτ$. Therefore, the FRET e
 $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}(=\frac{1}{(r/R_0)^6+1}),$$
 wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#a-note-on-the-multi-component-exponential-fit)).
 
-## Phasor transformation and autofluorescence filtering
-The phasor transformation is a normalized Fourier transformation that converts time-resolved emission data into a single point in the complex plane. For a donor fluorophore with an exponential decay $D(t) = Ce^{-t/τ}$ after pulsed excitation at time zero and any positive $\omega$ with a dimension of $s^{-1}$, the phasor transformation of $D(t)$ is defined as
+## Phasor transform and autofluorescence filtering
+The phasor transform is a normalized Fourier transform that converts time-resolved emission data into a single point in the complex plane. For a donor fluorophore with an exponential decay $D(t) = Ce^{-t/τ}$ after pulsed excitation at time zero and any positive $\omega$ with a dimension of $s^{-1}$, the phasor transform of $D(t)$ is defined as
 
 $$\mathcal{P}(\omega, D) = (\int_0^{+\infty} e^{i \omega t}D(t)dt)/(\int_0^{+\infty} D(t)dt) = \frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i.$$
 
@@ -45,7 +45,7 @@ Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is alway
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190550027-80257b25-4a5b-4318-9dbe-8da367782316.png">
 </p>
 
-The actual FLIM signal $R(t) =$ the normalized instrument response function (IRF) $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transformation of the raw time-resolved emission data $R(t)$ is then
+The actual FLIM signal $R(t) =$ the normalized instrument response function (IRF) $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transform of the raw time-resolved emission data $R(t)$ is then
 
 $$\mathcal{P}(\omega, R) = (\int_0^{+\infty} e^{i \omega t}R(t)dt)/(\int_0^{+\infty} R(t)dt),$$
 
@@ -61,10 +61,10 @@ Therefore,
 
 $$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (\int_0^{+\infty} e^{i \omega t}I(t)dt).$$
 
-The ```calculateIRFTransform``` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRFTransform.m) calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For the actual discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photons $n, n = 1, 2, ..., N$, is $t_n$. The phasor transformation of the series is then
+The ```calculateIRFTransform``` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRFTransform.m) calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For the actual discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photons $n, n = 1, 2, ..., N$, is $t_n$. The phasor transform of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$
 
-A critical application of the phasor plot is to identify pixels with mostly autofluorescence, without performing tedious fitting pixel by pixel. This is mainly due to the fact that autofluorescent substances in mammalian organelles typically feature a short lifetime compared to optimized fluorescent proteins chosen for the FLIM experiment. Reflected on the phasor plot, the phasor transformation of time-resolved emission data registered to pixels with mostly autofluorescence is well separated on the complex plane from the phasor transformation of time-resolved emission data registered to pixels with signals originated from actual fluorescent proteins.
+A critical application of the phasor plot is to identify pixels with mostly autofluorescence, without performing tedious fitting pixel by pixel. This is mainly due to the fact that autofluorescent substances in mammalian organelles typically feature a short lifetime compared to optimized fluorescent proteins chosen for the FLIM experiment. Reflected on the phasor plot, the phasor transform of time-resolved emission data registered to pixels with mostly autofluorescence is well separated on the complex plane from the phasor transform of time-resolved emission data registered to pixels with signals originated from actual fluorescent proteins.
 
 ## A note on the multi-component exponential fit
 

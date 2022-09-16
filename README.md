@@ -51,7 +51,7 @@ $$\mathcal{P}(\omega, R) = (\int_0^{+\infty} e^{i \omega t}R(t)dt)/(\int_0^{+\in
 
 wherein the denominator
 
-$$\begin{align}\int_0^{+\infty} R(t)dt &= \int_{t=0}^{+\infty} (\int_{T=0}^{t} I(T)D(t-T)dT)dt = \int_{T=0}^{+\infty} I(T)(\int_{t=T}^{+\infty} D(t-T)dt)dT \newline &= (\int_{T=0}^{+\infty} I(T)dT)(\int_{t=0}^{+\infty} D(t)dt) = \int_{t=0}^{+\infty} D(t)dt\end{align}$$
+$$\begin{align}\int_0^{+\infty} R(t)dt &= \int_{t=0}^{+\infty} (\int_{T=0}^{t} I(T)D(t-T)dT)dt = \int_{T=0}^{+\infty} I(T)(\int_{t=T}^{+\infty} D(t-T)dt)dT \newline &= \int_{T=0}^{+\infty} I(T)dT\cdot\int_{t=0}^{+\infty} D(t)dt = \int_{t=0}^{+\infty} D(t)dt\end{align}$$
 
 and the numerator
 

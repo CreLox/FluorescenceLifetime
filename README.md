@@ -10,20 +10,31 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
 The [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m) demonstrates all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), phasor plot-based pixel filtering, region exclusion (manual correction), and fitting. Use ``Run Section`` in MATLAB to perform your analysis in a guided, step-by-step manner.
 
 ## Principles
-At long last, GitHub Markdown now supports [math expressions](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions) natively (from May 2022)!
 
 To demonstrate how fluorescence lifetime measurements can quantify the FRET efficiency, consider a large number of donor fluorophore molecules with a lifetime of $τ_0$. In the absence of acceptor fluorophores, the exponential decay $D_0$ of donor fluorescence after pulsed excitation at time zero is
+
 $$D_0(t) = Ce^{-t/τ_0}.$$
+
 The total donor fluorescence signal (which can be measured through FLIM) is
+
 $$S_0=\int_0^{+\infty} D_0(t)dt = Cτ_0,$$
+
 wherein the pre-exponential factor $C$ is a constant determined by the total number and properties of fluorophores, as well as the imaging setup. Without altering any of these conditions, in the presence of acceptor fluorophores and FRET, the possibility that an excited fluorophore stays excited (has not relaxed to the ground state either through the fluorescence-emitting route or the FRET-quenching route) at time $t$ is
+
 $$P=e^{-(1/τ_0 +1/τ')t},$$
+
 wherein $τ'$ ( $=(r/R_0)^6τ_0$; see the derivation of equation 15.2.27 [here](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Time_Dependent_Quantum_Mechanics_and_Spectroscopy_(Tokmakoff)/15%3A_Energy_and_Charge_Transfer/15.02%3A_Forster_Resonance_Energy_Transfer_(FRET))) is the time parameter of FRET (note: although an excited fluorophore can only relax through one route, the two stochastic processes – fluorescence-emitting and FRET-quenching – are independent). Therefore, in the presence of acceptor fluorophores and FRET, the new decay dynamics $D$ of donor fluorescence becomes
+
 $$D(t)=Ce^{-(1/τ_0 +1/τ')t}=Ce^{-(τ_0+τ')t/(τ_0 τ')},$$
+
 The **effective lifetime** of the donor fluorophore (which can be measured through FLIM) becomes
+
 $$τ=\frac{τ_0 τ'}{τ_0+τ'},$$
+
 and the total donor fluorescence signal becomes $S = Cτ$. Therefore, the FRET efficiency
+
 $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}(=\frac{1}{(r/R_0)^6+1}),$$
+
 wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#a-note-on-the-multi-component-exponential-fit)).
 
 ## Phasor transform and autofluorescence filtering
@@ -64,7 +75,7 @@ $$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (\int_0^{+\infty} e^{i \omeg
 The ```calculateIRFTransform``` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRFTransform.m) calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For the actual discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photons $n, n = 1, 2, ..., N$, is $t_n$. The phasor transform of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$
 
-A critical application of the phasor plot is to identify pixels with mostly autofluorescence, without performing tedious fitting pixel by pixel. This is mainly due to the fact that autofluorescent substances in mammalian organelles typically feature a short lifetime compared to optimized fluorescent proteins chosen for the FLIM experiment. Reflected on the phasor plot, the phasor transform of time-resolved emission data registered to pixels with mostly autofluorescence is well separated on the complex plane from the phasor transform of time-resolved emission data registered to pixels with signals originated from actual fluorescent proteins.
+A critical application of the phasor plot in the workflow is to identify pixels with mostly autofluorescence, without performing tedious fitting pixel by pixel. Autofluorescent substances in mammalian organelles typically feature shorter lifetimes than fluorescent proteins chosen for the FLIM experiment do. Reflected on the phasor plot, the phasor transforms of time-resolved emission data registered to pixels with mostly autofluorescence are well separated from those registered to pixels with mostly fluorescent proteins.
 
 ## A note on the multi-component exponential fit
 
@@ -77,6 +88,7 @@ The multi-component exponential fit is intrinsically flexible. Regarding this, [
 </p>
 
 However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component (see the section above) should be conserved, regardless of the actual fitting parameters (because both $S$, the area underneath the curve, and $D(0)$, the intersection point at $t = 0$, should be close for all **good** fits):
+
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
 
 ## Prepulse and afterpulse in the measured IRF

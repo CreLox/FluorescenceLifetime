@@ -36,10 +36,10 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190866352-23d2456c-499a-4e07-8c68-df225fb36841.png"><br>
   An overlay of the raw FLIM data and the fitted curve.
 </p>
-
+<br>
 <p align="center">
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190866386-ca717548-c3dc-431b-8647-4dd84c1b4070.png"><br>
-  A residual plot tiled together with a plot of the auto-correlation function of residuals.
+  A residual plot tiled together with a plot of the auto-correlation function of the residuals.
 </p>
 
 ## Principles

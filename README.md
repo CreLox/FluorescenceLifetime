@@ -9,7 +9,7 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
 ## General workflow
 (Note: step 1-3 is only needed to be done once per experiment.)
 
-1. Open MATLAB. In the Command Window, call the `calculateIRF` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRF.m) and pick the .fcs file containing the IRF measurement in the pop-up UI. The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
+1. Open MATLAB. In the Command Window, call the `calculateIRF` function and pick the .fcs file containing the IRF measurement in the pop-up UI. The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
 
 ```MATLAB
 >> calculateIRF('Early'); % For the green channel, specify the early pulse.

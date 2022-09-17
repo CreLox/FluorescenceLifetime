@@ -33,12 +33,12 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
 4.  Load the .mat file containing `IRFProb`, `Omega`, and `IRFTransform` in the third step of the [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m). This workflow routine lays out all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), [phasor plot-based pixel filtering](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering), region exclusion (manual correction), and fitting. Use `Run Section` to perform your analysis in a guided, step-by-step manner. All fitting parameters are automatically saved into a .mat file and two associated plots (including an overlay of the raw FLIM data and the fitted curve, as well as a residual plot tiled together with a plot of the auto-correlation function of residuals; see below for exemplary output figures) are also automatically saved as individual .fig files.
 
 <p align="center">
-  <img width="540" alt="image" src="/ExemplaryOutputFigures/Raw+Fitted.png">
+  <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190866352-23d2456c-499a-4e07-8c68-df225fb36841.png"><br>
   An overlay of the raw FLIM data and the fitted curve.
 </p>
 
 <p align="center">
-  <img width="540" alt="image" src="/ExemplaryOutputFigures/Residual+ACF.png">
+  <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190866386-ca717548-c3dc-431b-8647-4dd84c1b4070.png"><br>
   A residual plot tiled together with a plot of the auto-correlation function of residuals.
 </p>
 

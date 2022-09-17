@@ -7,34 +7,30 @@
 This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.
 
 ## General workflow
-1. Open MATLAB. Call the `calculateIRF` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRF.m) and pick your .fcs file containing the IRF measurement in the pop-up UI. For the green channel, specify the early pulse:
+(Note: step 1-3 is only needed to be done once per experiment.)
+
+1. Open MATLAB. In the Command Window, call the `calculateIRF` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRF.m) and pick the .fcs file containing the IRF measurement in the pop-up UI. The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
 
 ```MATLAB
-calculateIRF('Early');
+>> calculateIRF('Early'); % For the green channel, specify the early pulse.
 ```
 
-The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
-
-2. Visually examine the IRF curve.
+2. Visually examine the IRF curve. Optional: if you see a major prepulse before the main IRF spike, remove it manually by assigning those `IRFProb` values belong to the prepulse to 0. The reason is explained in [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#prepulse-and-afterpulse-in-the-measured-irf). However, if you do this, make sure to renormalize the `IRFProb`.
 
 ```MATLAB
 >> plot(25/4096:50/4096:25-25/4096, IRFProb, '.-'); % A ClockFrequency of 20 MHz and an ADCResolution of 4096 were used
+   ...
+>> % IRFProb = IRFProb / sum(IRFProb); % Normalization again
 ```
 
-If you see a major prepulse before the main IRF spike, remove it manually by assigning those `IRFProb` values belong to the prepulse to 0. The reason is explained in [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#prepulse-and-afterpulse-in-the-measured-irf). If you do this, make sure to renormalize the `IRFProb`:
+3. Calculate `IRFTransform`. For more details, see [another section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering). Save `IRFProb`, `Omega`, and `IRFTransform` into a single .mat file.
 
 ```MATLAB
-IRFProb = IRFProb / sum(IRFProb);
+>> Omega = calculateBestOmega(2, 3); % ~ 0.4082, which optimally resolves fluorescence lifetimes in the 2-3 ns range; do not use other values because the empirical standards (hard-coded in the third step of the workflow routine; see below) to identify autofluorescent pixels depend on it.
+>> IRFTransform = calculateIRFTransform(IRFProb, 25/4096:50/4096:25-25/4096, Omega); % A ClockFrequency of 20 MHz and an ADCResolution of 4096 were used
 ```
 
-3. Calculate `IRFTransform`. See [another section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering).
-
-```MATLAB
-Omega = calculateBestOmega(2, 3); % ~ 0.4082, which optimally resolves fluorescence lifetimes in the 2-3 ns range; do not use other values because the empirical standards (hard-coded in the third step of the workflow routine; see below) to identify autofluorescent pixels depend on it.
-IRFTransform = calculateIRFTransform(IRFProb, 25/4096:50/4096:25-25/4096, Omega); % A ClockFrequency of 20 MHz and an ADCResolution of 4096 were used
-```
-
-4. Save `IRFProb`, `Omega`, and `IRFTransform` into a single .mat file and load it in the third step of the [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m). This workflow routine lays out all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), [phasor plot-based pixel filtering](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering), region exclusion (manual correction), and fitting. Use `Run Section` to perform your analysis in a guided, step-by-step manner.
+4.  Load the .mat file containing `IRFProb`, `Omega`, and `IRFTransform` in the third step of the [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m). This workflow routine lays out all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), [phasor plot-based pixel filtering](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering), region exclusion (manual correction), and fitting. Use `Run Section` to perform your analysis in a guided, step-by-step manner.
 
 ## Principles
 

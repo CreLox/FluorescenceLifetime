@@ -7,7 +7,7 @@
 This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.
 
 ## General workflow
-(Note: step 1-3 is only needed to be done once per experiment.)
+(Note: steps 1-3 are only needed to be done once per experiment.)
 
 1. Open MATLAB. In the Command Window, call the `calculateIRF` function and pick the .fcs file containing the IRF measurement in the pop-up UI. The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
 
@@ -15,7 +15,7 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
 >> calculateIRF('Early'); % For the green channel, specify the early pulse.
 ```
 
-2. Visually examine the IRF curve. Optional: if you see a major prepulse before the main IRF spike, remove it manually by assigning those `IRFProb` values belong to the prepulse to 0. The reason is explained in [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#prepulse-and-afterpulse-in-the-measured-irf). However, if you do this, make sure to renormalize the `IRFProb`.
+2. Visually examine the IRF curve. Optional: if you see a major prepulse before the main IRF spike, remove it manually by assigning those `IRFProb` values belonging to the prepulse to 0. The reason is explained in [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#prepulse-and-afterpulse-in-the-measured-irf). However, if you do this, make sure to renormalize the `IRFProb`.
 
 ```MATLAB
 >> plot(25/4096:50/4096:25-25/4096, IRFProb, '.-'); % A ClockFrequency of 20 MHz and an ADCResolution of 4096 were used

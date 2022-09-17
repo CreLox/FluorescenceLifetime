@@ -9,7 +9,7 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
 ## General workflow
 (Note: steps 1-3 are only needed to be done once per experiment.)
 
-1. Open MATLAB. In the Command Window, call the `calculateIRF` function and pick the .fcs file containing the IRF measurement in the pop-up UI. The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
+1. Open MATLAB. In the Command Window, call the `calculateIRF` function and pick the .fcs file containing the instrument response function (IRF) measurement data in the pop-up UI. The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
 
 ```MATLAB
 >> calculateIRF('Early'); % For the green channel, specify the early pulse.
@@ -79,7 +79,7 @@ Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is alway
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190550027-80257b25-4a5b-4318-9dbe-8da367782316.png">
 </p>
 
-The actual FLIM signal $R(t) =$ the normalized instrument response function (IRF) $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transform of the raw time-resolved emission data $R(t)$ is then
+The actual FLIM signal $R(t) =$ the normalized IRF $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transform of the raw time-resolved emission data $R(t)$ is then
 
 $$\mathcal{P}(\omega, R) = (\int_0^{+\infty} e^{i \omega t}R(t)dt)/(\int_0^{+\infty} R(t)dt),$$
 

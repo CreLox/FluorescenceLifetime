@@ -7,7 +7,34 @@
 This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.
 
 ## General workflow
-The [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m) demonstrates all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), phasor plot-based pixel filtering, region exclusion (manual correction), and fitting. Use ``Run Section`` in MATLAB to perform your analysis in a guided, step-by-step manner.
+1. Open MATLAB. Call the `calculateIRF` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRF.m) and pick your .fcs file containing the IRF measurement in the pop-up UI. For the green channel, specify the early pulse:
+
+```MATLAB
+calculateIRF('Early');
+```
+
+The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
+
+2. Visually examine the IRF curve.
+
+```MATLAB
+>> plot(25/4096:50/4096:25-25/4096, IRFProb, '.-'); % A ClockFrequency of 20 MHz and an ADCResolution of 4096 were used
+```
+
+If you see a major prepulse before the main IRF spike, remove it manually by assigning those `IRFProb` values belong to the prepulse to 0. The reason is explained in [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#prepulse-and-afterpulse-in-the-measured-irf). If you do this, make sure to renormalize the `IRFProb`:
+
+```MATLAB
+IRFProb = IRFProb / sum(IRFProb);
+```
+
+3. Calculate `IRFTransform`. See [another section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering).
+
+```MATLAB
+Omega = calculateBestOmega(2, 3); % ~ 0.4082, which optimally resolves fluorescence lifetimes in the 2-3 ns range; do not use other values because the empirical standards (hard-coded in the third step of the workflow routine; see below) to identify autofluorescent pixels depend on it.
+IRFTransform = calculateIRFTransform(IRFProb, 25/4096:50/4096:25-25/4096, Omega); % A ClockFrequency of 20 MHz and an ADCResolution of 4096 were used
+```
+
+4. Save `IRFProb`, `Omega`, and `IRFTransform` into a single .mat file and load it in the third step of the [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m). This workflow routine lays out all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), [phasor plot-based pixel filtering](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering), region exclusion (manual correction), and fitting. Use `Run Section` to perform your analysis in a guided, step-by-step manner.
 
 ## Principles
 
@@ -72,7 +99,7 @@ Therefore,
 
 $$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (\int_0^{+\infty} e^{i \omega t}I(t)dt).$$
 
-The ```calculateIRFTransform``` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRFTransform.m) calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For the actual discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photons $n, n = 1, 2, ..., N$, is $t_n$. The phasor transform of the series is then
+The `calculateIRFTransform` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRFTransform.m) calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For the actual discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photons $n, n = 1, 2, ..., N$, is $t_n$. The phasor transform of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$
 
 A critical application of the phasor plot in the workflow is to identify pixels with mostly autofluorescence, without performing tedious fitting pixel by pixel. Autofluorescent substances in mammalian organelles typically feature shorter lifetimes than fluorescent proteins chosen for the FLIM experiment do. Reflected on the phasor plot, the phasor transforms of time-resolved emission data registered to pixels with mostly autofluorescence are well separated from those registered to pixels with mostly fluorescent proteins.

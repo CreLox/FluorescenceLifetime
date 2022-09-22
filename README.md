@@ -15,7 +15,7 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
 >> calculateIRF('Early'); % For the green channel, specify the early pulse.
 ```
 
-2. Visually examine the IRF curve. Optional: if you see a major prepulse before the main IRF spike, remove it manually by assigning those `IRFProb` values belonging to the prepulse to 0. The reason is explained in [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#prepulse-and-afterpulse-in-the-measured-irf). However, if you do this, make sure to renormalize the `IRFProb`.
+2. Visually examine the IRF curve. Optional: if you see a major prepulse before the main IRF spike, remove it manually by assigning those `IRFProb` values belonging to the prepulse to 0. The reason is explained in [a section below](https://github.com/CreLox/FluorescenceLifetime#prepulse-and-afterpulse-in-the-measured-irf). However, if you do this, make sure to renormalize the `IRFProb`.
 
 ```MATLAB
 >> plot(25/4096:50/4096:25-25/4096, IRFProb, '.-'); % A ClockFrequency of 20 MHz and an ADCResolution of 4096 were used
@@ -23,14 +23,14 @@ This toolkit requires another repository of mine, [readHeader](https://github.co
 >> % IRFProb = IRFProb / sum(IRFProb); % Normalization again
 ```
 
-3. Calculate `IRFTransform`. For more details, see [another section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering). Save `IRFProb`, `Omega`, and `IRFTransform` into a single .mat file.
+3. Calculate `IRFTransform`. Do not use other values for $\omega$ because the empirical standards (hard-coded in the third step of the [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m)) to identify autofluorescent pixels depend on $\omega$. For more details, see [another section below](https://github.com/CreLox/FluorescenceLifetime#phasor-transform-and-autofluorescence-filtering). Save `IRFProb`, `Omega`, and `IRFTransform` into a single .mat file.
 
 ```MATLAB
->> Omega = calculateBestOmega(2, 3); % ~ 0.4082, which optimally resolves fluorescence lifetimes in the 2-3 ns range; do not use other values because the empirical standards (hard-coded in the third step of the workflow routine; see below) to identify autofluorescent pixels depend on it.
+>> Omega = calculateBestOmega(2, 3); % ~ 0.4082, which optimally resolves fluorescence lifetimes in the 2-3 ns range.
 >> IRFTransform = calculateIRFTransform(IRFProb, 25/4096:50/4096:25-25/4096, Omega); % A ClockFrequency of 20 MHz and an ADCResolution of 4096 were used
 ```
 
-4.  Load the .mat file containing `IRFProb`, `Omega`, and `IRFTransform` in the third step of the [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m). This workflow routine lays out all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), [phasor plot-based pixel filtering](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#phasor-transform-and-autofluorescence-filtering), region exclusion (manual correction), and fitting. Use `Run Section` to perform your analysis in a guided, step-by-step manner. All fitting parameters are automatically saved into a .mat file and two associated plots (including an overlay of the raw FLIM data in black and the fitted curve in red, as well as a residual plot tiled together with a plot of the auto-correlation function of residuals; see below for exemplary output figures) are also automatically saved as individual .fig files.
+4. Load the .mat file containing `IRFProb`, `Omega`, and `IRFTransform` in the third step of the [workflow routine](https://github.com/CreLox/FluorescenceLifetime/blob/master/Workflows/PhasorIntensityFiltersFLIMFitting.m). This workflow routine lays out all the steps in a typical data analysis: intensity thresholding (for localized fluorophores), [phasor plot-based pixel filtering](https://github.com/CreLox/FluorescenceLifetime#phasor-transform-and-autofluorescence-filtering), region exclusion (manual correction), and fitting (MATLAB `fmincon`). To minimize $\Chi^2$ (the correct way for the Poisson process but numerically problematic due to the low and noisy event counts at the two tails), use `FittingOption = Fitting2` (for a 2-component exponential decay fit) or `FittingOption = Fitting1` (for a standard exponential decay fit). To minimize the Manhattan distance between the fitted curve and raw data (a practical way employed in our data analysis, which is further explained [here](https://github.com/CreLox/FluorescenceLifetime#a-note-on-the-multi-component-exponential-fit)), use `FittingOption = Fitting2S` (by default; for a 2-component exponential decay fit) or `FittingOption = Fitting1S` (for a standard exponential decay fit). Use `Run Section` to perform your analysis in a guided, step-by-step manner. All fitting parameters are automatically saved into a .mat file and two associated plots (including an overlay of the raw FLIM data in black and the fitted curve in red, as well as a residual plot tiled together with a plot of the auto-correlation function of residuals; see below for exemplary output figures) are also automatically saved as individual .fig files.
 
 <p align="center">
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190866352-23d2456c-499a-4e07-8c68-df225fb36841.png"><br>
@@ -68,7 +68,7 @@ and the total donor fluorescence signal becomes $S = Cτ$. Therefore, the FRET e
 
 $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}(=\frac{1}{(r/R_0)^6+1}),$$
 
-wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see [a section below](https://github.com/CreLox/FluorescenceLifetime/blob/master/README.md#a-note-on-the-multi-component-exponential-fit)).
+wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see [a section below](https://github.com/CreLox/FluorescenceLifetime#a-note-on-the-multi-component-exponential-fit)).
 
 ## Phasor transform and autofluorescence filtering
 The phasor transform is a normalized Fourier transform that converts time-resolved emission data into a single point in the complex plane. For a donor fluorophore with an exponential decay $D(t) = Ce^{-t/τ}$ after pulsed excitation at time zero and any positive $\omega$ with a dimension of $s^{-1}$, the phasor transform of $D(t)$ is defined as
@@ -120,7 +120,7 @@ The multi-component exponential fit is intrinsically flexible. Regarding this, [
   <img width="810" alt="image" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">
 </p>
 
-However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component (see the section above) should be conserved, regardless of the actual fitting parameters (because both $S$, the area underneath the curve, and $D(0)$, the intersection point at $t = 0$, should be close for all **good** fits):
+However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component (see the section above) should be conserved, regardless of the actual fitting parameters (because both $S$, the area underneath the curve which is optimally fitted by applying `FittingOption = Fitting2S`, and $D(0)$, the intersection point at $t = 0$, should be close for all **good** fits):
 
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
 

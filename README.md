@@ -120,7 +120,7 @@ The multi-component exponential fit is intrinsically flexible. Regarding this, [
   <img width="810" alt="image" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">
 </p>
 
-However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component (see the section above) should be conserved, regardless of the actual fitting parameters (because both $S$, the area underneath the curve which is optimally fitted by applying `FittingOption = Fitting2S`, and $D(0)$, the intersection point at $t = 0$, should be close for all **good** fits):
+However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component (see [a section above](https://github.com/CreLox/FluorescenceLifetime#principles)) should be conserved regardless of the fit. This is because both $S$, the area underneath the decay curve which is optimally fitted by applying `FittingOption = Fitting1S` or `FittingOption = Fitting2S`, and $D(0)$, the fluorescence intensity at $t = 0$, are conserved for all **good** fits:
 
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
 

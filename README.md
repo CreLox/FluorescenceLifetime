@@ -1,7 +1,7 @@
 ## Introduction on FC(C)S/FLIM
 [PicoQuant knowledgebase](https://www.picoquant.com/scientific/technical-and-application-notes/category/technical_notes_techniques_and_methods/P8)
 
-[Jung et al., 2011](https://link.springer.com/chapter/10.1007/4243_2011_14) on the fluorescent lifetime of fluorescent proteins
+[Jung et al., 2011](https://link.springer.com/chapter/10.1007/4243_2011_14) on the fluorescence lifetime of fluorescent proteins
 
 [Malacrida et al., 2021](https://www.annualreviews.org/doi/10.1146/annurev-biophys-062920-063631) on the phasor plot
 

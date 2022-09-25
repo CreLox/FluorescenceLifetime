@@ -3,7 +3,7 @@
 
 [Jung et al., 2011](https://link.springer.com/chapter/10.1007/4243_2011_14) on the fluorescence lifetime of fluorescent proteins
 
-[Malacrida et al., 2021](https://www.annualreviews.org/doi/10.1146/annurev-biophys-062920-063631) on the phasor plot
+[Malacrida et al., 2021](https://www.annualreviews.org/doi/10.1146/annurev-biophys-062920-063631) on the phasor plot, especially literature [45, 46, 54, 59, 60, 61] cited in this review.
 
 ## Prerequisite
 This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.

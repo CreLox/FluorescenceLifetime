@@ -85,11 +85,15 @@ For an ensemble of fluorophores with different exponential decay lifetimes, it i
 
 $$\mathcal{P}(\omega, \sum_{m=0}^{M} D_m) = \sum_{m=0}^{M} (\mathcal{P}(\omega, D_m) \cdot C_m\tau_m / \sum_{l=0}^{M} C_l\tau_l ).$$
 
-Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is always within the convex hull defined by the phasor(s) of all composing species and is therefore on or within the semicircle. The simplest case wherein the ensemble contains two species with various lifetimes is illustrated below.
+Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is always within the convex hull defined by the phasor(s) of all composing species and is therefore on or within the semicircle. The simplest case wherein the ensemble contains two species with various lifetimes is illustrated below. 
 
 <p align="center">
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190550027-80257b25-4a5b-4318-9dbe-8da367782316.png">
 </p>
+
+It should be noted that although there is a one-to-one mapping relationship between one-component exponential decays ${e^{-t/\tau}|\tau>0}$ and points on the universal semicircle given a specific $\omega$ (because $operatorname{tan}(\operatorname{arg}(\mathcal{P})) = \omega\tau$), a point not on but in the universal semicircle may correspond to multi-component exponential decays with different average lifetime (weighted by the corresponding $C$ of each component). In fact, suppose the blue point $x_0 + y_0i$ represents the phasor transform of a two-component exponential decay and the two cyan points represents its two components. The slope of the cyan line segment connecting the two cyan points is $k$. Then
+
+$$\bar{\tau} = \frac{(1-x_0)k+y_0}{\omega(y_0k+x_0)}.$$ 
 
 The actual FLIM signal $R(t) =$ the normalized IRF $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transform of the raw time-resolved emission data $R(t)$ is then
 

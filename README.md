@@ -91,7 +91,7 @@ Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is alway
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190550027-80257b25-4a5b-4318-9dbe-8da367782316.png">
 </p>
 
-It should be noted that although there is a one-to-one mapping relationship between one-component exponential decays ${e^{-t/\tau}|\tau>0}$ and points on the universal semicircle given a specific $\omega$ (because $operatorname{tan}(\operatorname{arg}(\mathcal{P})) = \omega\tau$), a point not on but in the universal semicircle may correspond to multi-component exponential decays with different average lifetime (weighted by the corresponding $C$ of each component). In fact, suppose the blue point $x_0 + y_0i$ represents the phasor transform of a two-component exponential decay and the two cyan points represents its two components. The slope of the cyan line segment connecting the two cyan points is $k$. Then
+It should be noted that although there is a one-to-one mapping relationship between one-component exponential decays $\{e^{-t/\tau}|\tau>0\}$ and points on the universal semicircle given a specific $\omega$ (because $\operatorname{tan}(\operatorname{arg}(\mathcal{P})) = \omega\tau$), a point not on but in the universal semicircle may correspond to multi-component exponential decays with different average lifetime (weighted by the corresponding $C$ of each component). In fact, suppose the blue point $x_0 + y_0i$ represents the phasor transform of a two-component exponential decay and the two cyan points represents its two components. The slope of the cyan line segment connecting the two cyan points is $k$. Then
 
 $$\bar{\tau} = \frac{(1-x_0)k+y_0}{\omega(y_0k+x_0)}.$$ 
 

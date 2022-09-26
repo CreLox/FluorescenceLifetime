@@ -95,7 +95,7 @@ Although there exists a one-to-one mapping relationship between one-component ex
 
 $$\bar{\tau} = \frac{(1-x_0)k+y_0}{\omega(y_0k+x_0)} \in (0, \frac{y_0}{\omega(x_0^2+y_0^2)}).$$
 
-As a side note, Section 4.2 of [Ranjit, Malacrida, and Gratton, 2018](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/full/10.1002/jemt.23061) proposed a fit-free method (not implemented in this toolkit) to determine the lifetimes of the components of a two-component exponential decay. The key is to use various $\omega$ to perform the phasor transform. However, like the fitting method, it should be tested using real FLIM data (with limited event counts) and scrutinized from a numerical analysis perspective.
+As a side note, Section 4.2 of [Ranjit, Malacrida, and Gratton, 2018](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/full/10.1002/jemt.23061) proposed a fit-free method (not implemented in this toolkit) to determine the lifetimes of the components of a two-component exponential decay. The key is to use various $\omega$ to perform the phasor transform. However, like the fitting method, it should be tested using real FLIM data (with limited event counts) and scrutinized from an error analysis perspective.
 
 The actual FLIM signal $R(t) =$ the normalized IRF $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise). If we ignore the noise, the phasor transform of the raw time-resolved emission data $R(t)$ is then
 

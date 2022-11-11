@@ -43,7 +43,7 @@ All fitting parameters are automatically saved into a .mat file and two associat
 <br>
 <p align="center">
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190866386-ca717548-c3dc-431b-8647-4dd84c1b4070.png"><br>
-  Exemplary output figure 2: A residual plot tiled together with a plot of the auto-correlation function of the residuals in the exemplary output figure 1 above.
+  Exemplary output figure 2: A residual plot tiled together with a plot of the auto-correlation function (ACF) of the residuals in the exemplary output figure 1 above.
 </p>
 
 ## Principles
@@ -143,7 +143,7 @@ Alba is a laser scanning microscopy setup. The amplification factor is determine
 ## Reference
 This tool kit is licensed under GPL-3.0. If you used any of the codes in your research, please kindly cite the following study:
 
-Chen, C., Piano, V., Alex, A., Han, S.J., Huis, P.J., Roy, B., Musacchio, A. and Joglekar, A.P., 2022. The structural flexibility of MAD1 facilitates the assembly of the mitotic checkpoint complex. bioRxiv.
+Chen, C., Piano, V., Alex, A., Han, S.J., Huis, P.J., Roy, B., Musacchio, A., and Joglekar, A.P., 2022. The structural flexibility of MAD1 facilitates the assembly of the mitotic checkpoint complex. bioRxiv: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full.
 
 ## Acknowledgments
 I would like to thank Dr. J. Damon Hoff (from the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts related to the I/O of data files.

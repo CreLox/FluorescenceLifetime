@@ -140,8 +140,8 @@ Our current protocol uses a mirror on the sample plane to measure the IRF. The e
 ## Normalization of event counts
 Alba is a laser scanning microscopy setup. The amplification factor is determined by the setup and the objective but not by the scale of the FOV set for scanning. Therefore, the power of the excitation light on the sample plane and the corresponding area on the sample plane of the APD detector are not affected by the FOV set for scanning. Because the pixel dwell time is fixed, the event count per **pixel** is directly comparable, regardless of the scale of the FOV set for scanning.
 
-## Reference
-This tool kit is licensed under GPL-3.0. If you used any of the codes in your research, please kindly cite the following study:
+## How to cite this work?
+If you used any of the codes in your research, please kindly cite the following study:
 
 Chen, C., Piano, V., Alex, A., Han, S.J., Huis, P.J., Roy, B., Musacchio, A., and Joglekar, A.P., 2022. The structural flexibility of MAD1 facilitates the assembly of the mitotic checkpoint complex. bioRxiv: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full.
 

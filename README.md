@@ -95,7 +95,7 @@ Since the fractional intensity $\in (0, 1]$, the phasor of the ensemble is alway
 
 Although there exists a one-to-one mapping relationship between one-component exponential decays $\in\\{e^{-t/\tau}\mid\tau\gt0\\}$ and points on the universal semicircle given a specific $\omega$ (because $\operatorname{tan}(\operatorname{arg}(\mathcal{P})) = \omega\tau$), a point inside the universal semicircle may correspond to various multi-component exponential decays with **different average lifetimes (weighted by the corresponding $C$ of each component)**. In fact, suppose that the blue point $x_0 + y_0i, x_0, y_0 \in \mathbb{R}$ in the figure above represents the phasor transform of a two-component exponential decay with the two cyan points representing its two components and that the slope of the cyan line segment connecting the two cyan points is $k$. It is easy to derive that
 
-$$\bar{\tau} = \frac{(1-x_0)k+y_0}{\omega(y_0k+x_0)} \in (0, \frac{y_0}{\omega(x_0^2+y_0^2)}).$$
+$$\bar{\tau}(k) = \frac{(1-x_0)k+y_0}{\omega(y_0k+x_0)} \in (0, \frac{y_0}{\omega(x_0^2+y_0^2)}).$$
 
 As a side note, Section 4.2 of [Ranjit, Malacrida, and Gratton, 2018](https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/full/10.1002/jemt.23061) proposed a fit-free method (not implemented in this toolkit) to determine the lifetimes of the components of a two-component exponential decay. The key is to use various $\omega$ to perform the phasor transform. However, like the fitting method, it should be tested using real FLIM data (with limited event counts) and scrutinized from an error analysis perspective.
 

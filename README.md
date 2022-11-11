@@ -43,7 +43,7 @@ All fitting parameters are automatically saved into a .mat file and two associat
 <br>
 <p align="center">
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190866386-ca717548-c3dc-431b-8647-4dd84c1b4070.png"><br>
-  Exemplary output figure 2: A residual plot tiled together with a plot of the auto-correlation function of the residuals.
+  Exemplary output figure 2: A residual plot tiled together with a plot of the auto-correlation function of the residuals in the exemplary output figure 1 above.
 </p>
 
 ## Principles
@@ -118,7 +118,7 @@ $$\mathcal{P}(\omega, D) = \mathcal{P}(\omega, R) / (\int_0^{+\infty} e^{i \omeg
 The `calculateIRFTransform` [function](https://github.com/CreLox/FluorescenceLifetime/blob/master/calculateIRFTransform.m) calculates $\int_0^{+\infty} e^{i \omega t}I(t)dt$. For the actual discrete time-resolved emission data, suppose that the arrival micro-time (after pulsed excitation at time zero) of a series of emission photons $n, n = 1, 2, ..., N$, is $t_n$. The phasor transform of the series is then
 $$\mathcal{P}(\omega) = \sum_{n=0}^{N} e^{i \omega t_n}/N.$$
 
-A critical application of the phasor plot in the workflow is to identify pixels with mostly autofluorescence, without performing tedious fitting pixel by pixel. Autofluorescent substances in the green channel in mammalian organelles (mainly flavins; see [Aubin, 1979](https://journals.sagepub.com/doi/epdf/10.1177/27.1.220325)) typically feature shorter lifetimes (see [Horilova, Cunderlikova, and Chorvatova, 2014](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-20/issue-05/051017/Time--and-spectrally-resolved-characteristics-of-flavin-fluorescence-in/10.1117/1.JBO.20.5.051017.full)) than fluorescent proteins chosen for the FLIM experiment do. Reflected on the phasor plot, the phasor transforms of time-resolved emission data registered to pixels with mostly autofluorescence are well separated from those registered to pixels with mostly fluorescent proteins.
+A critical application of the phasor plot in the workflow is to identify pixels with mostly autofluorescence, without performing tedious fitting pixel by pixel. Autofluorescent substances in the green channel in mammalian organelles (mainly flavins; see [Aubin, 1979](https://journals.sagepub.com/doi/epdf/10.1177/27.1.220325)) typically feature shorter lifetimes (see [Horilova, Cunderlikova, and Chorvatova, 2014](https://www.spiedigitallibrary.org/journals/journal-of-biomedical-optics/volume-20/issue-05/051017/Time--and-spectrally-resolved-characteristics-of-flavin-fluorescence-in/10.1117/1.JBO.20.5.051017.full)) than the green fluorescent protein chosen for the FLIM experiment does. For example, in the reference study, we used mNeonGreen (with a [reported lifetime](https://www.nature.com/articles/nmeth.2413) of ~ 3 ns) and [mScarlet-I](https://www.nature.com/articles/nmeth.4074) as the donor and the acceptor fluorophores (based on [this research](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0219886)), respectively. Reflected on the phasor plot, the phasor transforms of time-resolved emission data registered to pixels with mostly autofluorescence are well separated from those registered to pixels with mostly fluorescent proteins.
 
 ## A note on the multi-component exponential fit
 
@@ -139,6 +139,10 @@ Our current protocol uses a mirror on the sample plane to measure the IRF. The e
 
 ## Normalization of event counts
 Alba is a laser scanning microscopy setup. The amplification factor is determined by the setup and the objective but not by the scale of the FOV set for scanning. Therefore, the power of the excitation light on the sample plane and the corresponding area on the sample plane of the APD detector are not affected by the FOV set for scanning. Because the pixel dwell time is fixed, the event count per **pixel** is directly comparable, regardless of the scale of the FOV set for scanning.
+
+## Reference
+This tool kit is licensed under GPL-3.0. If you used any of the codes in your research, please kindly cite the following study:
+Chen, C., Piano, V., Alex, A., Han, S.J., Huis, P.J., Roy, B., Musacchio, A. and Joglekar, A.P., 2022. The structural flexibility of MAD1 facilitates the assembly of the mitotic checkpoint complex. bioRxiv.
 
 ## Acknowledgments
 I would like to thank Dr. J. Damon Hoff (from the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts related to the I/O of data files.

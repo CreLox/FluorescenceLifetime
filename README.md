@@ -74,6 +74,14 @@ $$\frac{S_0-S}{S_0}=\frac{τ_0-τ}{τ_0}(=\frac{1}{(r/R_0)^6+1}),$$
 
 wherein $τ_0$ and $τ$ can be measured through FLIM. Because the fluorescence lifetime in the absence of quenching is an intrinsic property of a mature fluorescent protein under a certain temperature (see [section 9.4.5.1, Kafle, 2020](https://www.sciencedirect.com/science/article/pii/B9780128148662000099)), the equation above greatly simplifies the FRET efficiency measurement. This equation still applies even if the fluorescence decay must be fitted by a multi-component exponential decay, as long as the fluorescence lifetime is an average value weighted by the corresponding $C$ of each component (see [a section below](https://github.com/CreLox/FluorescenceLifetime#a-note-on-the-multi-component-exponential-fit)).
 
+Below is an example of a FLIM experiment (performed by Dr. Ajit Joglekar) from the [reference study](https://github.com/CreLox/FluorescenceLifetime#how-to-cite-this-work) where a high FRET efficiency was observed. Here in the experimental group (red), the nuclear pore complex protein NUP50 is tandemly tagged with mNeonGreen (the donor fluorophore) and mScarlet-I (the acceptor fluorophore). In the control group (black), NUP50 is only tagged by mNeonGreen. It is obvious that the lifetime of mNeonGreen in NUP50-mNeonGreen-mScarlet-I is greatly shortened compared to the lifetime of mNeonGreen in NUP50-mNeonGreen. By fitting the lifetime with a (multi-component) exponential decay, we can then quantify the FRET efficiency.
+
+
+<p align="center">
+  <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/202163005-5f7f270e-eafe-4143-9196-f1799b821bc7.png"><br>
+  The scatter plots show the mean FLIM data of mNeonGreen (red: NUP50-mNeonGreen-mScarlet-I; black: NUP50-mNeonGreen) and each error bar represents the standard deviation of each microtime bin (the number of cells $N = 3$ for each group).
+</p>
+
 ## Phasor transform and autofluorescence filtering
 The phasor transform is a normalized Fourier transform that converts time-resolved emission data into a single point in the complex plane. For a donor fluorophore with an exponential decay $D(t) = Ce^{-t/τ}$ after pulsed excitation at time zero and any positive $\omega$ with a dimension of $s^{-1}$, the phasor transform of $D(t)$ is defined as
 

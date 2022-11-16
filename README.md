@@ -38,7 +38,7 @@ All fitting parameters are automatically saved into a .mat file and two associat
 
 <p align="center">
   <img width="540" alt="image" src="https://user-images.githubusercontent.com/18239347/190866352-23d2456c-499a-4e07-8c68-df225fb36841.png"><br>
-  Exemplary output figure 1: An overlay of the raw FLIM data in black and the fitted curve in red.
+  Exemplary output figure 1: An overlay of the raw FLIM data in black and the fitted curve in red. The "microtime" refers to the interval between the arrival of a detected photon and its corresponding excitation pulse.
 </p>
 <br>
 <p align="center">

@@ -56,7 +56,7 @@ The total donor fluorescence signal (which can be measured through FLIM) is
 
 $$S_0=\int_0^{+\infty} D_0(t)dt = Cτ_0,$$
 
-wherein the pre-exponential factor $C$ is a constant determined by the total number and properties of fluorophores, as well as the imaging setup. Without altering any of these conditions, in the presence of acceptor fluorophores and FRET, the possibility that an excited fluorophore stays excited (has not relaxed to the ground state either through the fluorescence-emitting route or the FRET-quenching route) at time $t$ is
+wherein the pre-exponential factor $C$ (also commonly named "amplitude") is a constant determined by the total number and properties of fluorophores, as well as the imaging setup. Without altering any of these conditions, in the presence of acceptor fluorophores and FRET, the possibility that an excited fluorophore stays excited (has not relaxed to the ground state either through the fluorescence-emitting route or the FRET-quenching route) at time $t$ is
 
 $$P=e^{-(1/τ_0 +1/τ')t},$$
 

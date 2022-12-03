@@ -5,8 +5,8 @@
 
 [Malacrida et al., 2021](https://www.annualreviews.org/doi/10.1146/annurev-biophys-062920-063631) on the phasor plot, especially literature [45, 46, 54, 59, 60, 61] cited in this review.
 
-## Prerequisite
-This toolkit requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to run.
+## Specifications
+This toolkit analyzes raw FLIM data in .iss-tdflim files obtained by an Alba v5 scanning microscope (equipped with a 20-MHz pulsed excitation light source) and ISS VistaVision. Photons are detected by an SPCM-AQRH-15 avalanche photodiode (APD). The time-correlated single photon counting module (which registers detected photon events to their corresponding excitation pulses) is an SPC-830.
 
 ## General workflow
 (Note: steps 1-3 are only needed to be done once per experiment.)
@@ -148,15 +148,15 @@ However, the average lifetime of a **good** multi-component exponential fit weig
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
 
 ## Prepulse and afterpulse in the measured IRF
-Our current protocol uses a mirror on the sample plane to measure the IRF. The emission filter is removed and internal reflection at lenses is observed as a prepulse in the measured IRF. This prepulse is an artifact due to the removal of the emission filter and should be manually removed in postprocessing. Additionally, the avalanche photodiode (APD) detector has an afterpulse feature (see [Ziarkash et al., 2018](https://www.nature.com/articles/s41598-018-23398-z)). This is intrinsic to the detector and an integral part of the IRF that should NOT be removed in postprocessing.
+Our current protocol uses a mirror on the sample plane to measure the IRF. The emission filter is removed and internal reflection at lenses is observed as a prepulse in the measured IRF. This prepulse is an artifact due to the removal of the emission filter and should be manually removed in postprocessing. Additionally, the APD detector has an afterpulse feature (see [Ziarkash et al., 2018](https://www.nature.com/articles/s41598-018-23398-z)). This is intrinsic to the detector and an integral part of the IRF that should NOT be removed in postprocessing.
 
 ## Normalization of event counts
-Alba is a laser scanning microscopy setup. The amplification factor is determined by the setup and the objective but not by the scale of the FOV set for scanning. Therefore, the power of the excitation light on the sample plane and the corresponding area on the sample plane of the APD detector are not affected by the FOV set for scanning. Because the pixel dwell time is fixed, the event count per **pixel** is directly comparable, regardless of the scale of the FOV set for scanning.
+For a scanning microscope, the amplification factor is determined by the setup and the objective but not by the scale of the FOV set for scanning. Therefore, the power of the excitation light on the sample plane and the corresponding area on the sample plane of the APD detector are not affected by the FOV set for scanning. Because the pixel dwell time is fixed, the event count per **pixel** is directly comparable, regardless of the scale of the FOV set for scanning.
 
 ## How to cite this work?
 If you used any of the codes in your research, please kindly cite the reference study:
 
-Chen, C., Piano, V., Alex, A., Han, S.J., Huis, P.J., Roy, B., Musacchio, A., and Joglekar, A.P., 2022. The structural flexibility of MAD1 facilitates the assembly of the mitotic checkpoint complex. bioRxiv: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full.
+Chen, C., Piano, V., Alex, A., Han, S.J.Y., Huis, P.J., Roy, B., Musacchio, A., and Joglekar, A.P., 2022. The structural flexibility of MAD1 facilitates the assembly of the mitotic checkpoint complex. bioRxiv: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full.
 
 ## Acknowledgments
 I would like to thank Dr. J. Damon Hoff (from the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts related to the I/O of data files.

@@ -1,4 +1,4 @@
-## Introduction on FC(C)S/FLIM
+## Introduction on FLIM
 [PicoQuant knowledgebase](https://www.picoquant.com/scientific/technical-and-application-notes/category/technical_notes_techniques_and_methods/P8)
 
 [Jung et al., 2011](https://link.springer.com/chapter/10.1007/4243_2011_14) on the fluorescence lifetime of fluorescent proteins
@@ -6,7 +6,7 @@
 [Malacrida et al., 2021](https://www.annualreviews.org/doi/10.1146/annurev-biophys-062920-063631) on the phasor plot, especially literature [45, 46, 54, 59, 60, 61] cited in this review.
 
 ## Specifications
-This toolkit analyzes raw FLIM data (in .iss-tdflim files acquired by ISS VistaVision) obtained by an Alba v5 scanning microscope equipped with a 20-MHz pulsed excitation light source. Photons are detected by an SPCM-AQRH-15 avalanche photodiode (APD). The time-correlated single photon counting module (which registers detected photon events to their corresponding excitation pulses) is an SPC-830.
+This toolkit analyzes raw FLIM data (in .iss-tdflim files acquired by ISS VistaVision) obtained by an Alba v5 scanning confocal microscope equipped with a 20-MHz pulsed excitation light source. Photons are detected by an SPCM-AQRH-15 avalanche photodiode (APD). The time-correlated single photon counting module (which registers detected photon events to their corresponding excitation pulses) is an SPC-830.
 
 ## General workflow
 (Note: steps 1-3 are only needed to be done once per experiment.)

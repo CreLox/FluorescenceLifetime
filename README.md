@@ -1,4 +1,4 @@
-## Introduction on FLIM
+## Introduction on Fluorescence Lifetime Imaging Microscopy (FLIM)
 [PicoQuant knowledgebase](https://www.picoquant.com/scientific/technical-and-application-notes/category/technical_notes_techniques_and_methods/P8)
 
 [Jung et al., 2011](https://link.springer.com/chapter/10.1007/4243_2011_14) on the fluorescence lifetime of fluorescent proteins
@@ -11,7 +11,7 @@ This toolkit analyzes raw FLIM data (in .iss-tdflim files acquired by ISS VistaV
 ## General workflow
 (Note: steps 1-3 are only needed to be done once per experiment.)
 
-1. Open MATLAB. In the Command Window, call the `calculateIRF` function and pick the .fcs file containing the instrument response function (IRF) measurement data in the pop-up UI. The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
+1. Open MATLAB. In the Command Window, call the `calculateIRF` function and pick the .fcs file containing the instrument response function (IRF) measurement data in the pop-up UI. Note that this requires another repository of mine, [readHeader](https://github.com/CreLox/readHeader), to function. The normalized IRF is then automatically saved into a .mat file with the same filename as the original .fcs input file. Load it to continue later steps.
 
 ```MATLAB
 >> calculateIRF('Early'); % For the green channel, specify the early pulse.

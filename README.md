@@ -143,7 +143,7 @@ The multi-component exponential fit is intrinsically flexible. Regarding this, [
   <img width="810" alt="image" src="https://user-images.githubusercontent.com/18239347/184480647-87a58ad1-fc0d-4daf-a830-a7bf177ed668.png">
 </p>
 
-However, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component should be conserved regardless of the fit. This is because both $S$, the area underneath the decay curve which is optimally fitted by applying `FittingOption = Fitting1S` or `FittingOption = Fitting2S`, and $D(0)$, the fluorescence intensity at $t = 0$, are conserved for all **good** fits:
+Therefore, **one should always be vigilant when translating the parameters derived from a multi-component exponential fit into actual physical parameters.** Regardless, the average lifetime of a **good** multi-component exponential fit weighted by the corresponding $C$ of each component should be conserved. This is because both $S$, the area underneath the decay curve which is optimally fitted by applying `FittingOption = Fitting1S` or `FittingOption = Fitting2S`, and $D(0)$, the fluorescence intensity at $t = 0$, are conserved for all **good** fits:
 
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
 

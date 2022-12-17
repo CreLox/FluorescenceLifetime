@@ -159,4 +159,4 @@ This toolkit is licensed under Apache-2.0. If you have used any of the codes in 
 Chen, C., Piano, V., Alex, A., Han, S.J.Y., Huis, P.J., Roy, B., Musacchio, A., and Joglekar, A.P., 2022. The structural flexibility of MAD1 facilitates the assembly of the mitotic checkpoint complex. bioRxiv: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full.
 
 ## Acknowledgments
-I would like to thank Dr. J. Damon Hoff (from the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts for parsing raw data files.
+I would like to thank [Dr. J. Damon Hoff](https://github.com/synkron) (from the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts for parsing raw data files.

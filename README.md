@@ -6,7 +6,7 @@
 [Malacrida et al., 2021](https://www.annualreviews.org/doi/10.1146/annurev-biophys-062920-063631) on the phasor plot, especially literature [45, 46, 54, 59, 60, 61] cited in this review.
 
 ## Specifications
-This toolkit analyzes raw FLIM data (in .iss-tdflim files acquired by VistaVision) obtained by an Alba v5 scanning confocal microscope equipped with a 20-MHz pulsed excitation light source. Photons are detected by an SPCM-AQRH-15 avalanche photodiode (APD). The time-correlated single photon counting module (which registers detected photon events to their corresponding excitation pulses) is an SPC-830.
+This toolkit analyzes raw FLIM data (in .iss-tdflim files acquired by VistaVision) obtained by an Alba v5 scanning confocal microscope equipped with a 20-MHz pulsed excitation light source. The microscope is hosted at the Single Molecule Analysis in Real-Time (SMART) Center at the University of Michigan, Ann Arbor. To operate the microscope, please read [the manual](https://github.com/CreLox/FluorescenceLifetime/blob/master/SMARTCenterSpectroscopyManual.pdf). Photons are detected by an SPCM-AQRH-15 avalanche photodiode (APD). The time-correlated single photon counting module (which registers detected photon events to their corresponding excitation pulses) is an SPC-830.
 
 ## General workflow
 (Note: steps 1-3 are only needed to be done once per experiment.)
@@ -159,4 +159,4 @@ This toolkit is licensed under Apache-2.0. If you have used any of the codes in 
 Chen, C., Piano, V., Alex, A., Han, S.J.Y., Huis, P.J., Roy, B., Musacchio, A., and Joglekar, A.P., 2022. The structural flexibility of MAD1 facilitates the assembly of the mitotic checkpoint complex. bioRxiv: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full.
 
 ## Acknowledgments
-I would like to thank Dr. J. Damon Hoff (Single Molecule Analysis in Real-Time (SMART) Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts for parsing raw data files.
+I would like to thank Dr. J. Damon Hoff (the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts for parsing raw data files.

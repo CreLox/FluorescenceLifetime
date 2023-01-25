@@ -156,7 +156,7 @@ For a scanning microscope, the amplification factor is determined by the setup a
 ## How to cite this work?
 This toolkit is licensed under Apache-2.0. If you have used any of the codes in your research, please kindly consider citing the following reference study:
 
-> Chen, C., Piano, V., Alex, A., Han, S.J.Y., Huis, P.J., Roy, B., Fergle, D., Musacchio, A., and Joglekar, A.P., 2023. The structural flexibility of MAD1 facilitates the assembly of the Mitotic Checkpoint Complex. *Nature Communications*, in press. (bioRxiv preprint: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full)
+> Chen, C., Piano, V., Alex, A., Han, S.J.Y., Huis in ´t Veld, P.J., Roy, B., Fergle, D., Musacchio, A., and Joglekar, A.P., 2023. The structural flexibility of MAD1 facilitates the assembly of the Mitotic Checkpoint Complex. *Nature Communications*, in press. (bioRxiv preprint: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full)
 
 ## Acknowledgments
 I would like to thank Dr. J. Damon Hoff (the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts for parsing raw data files.

@@ -154,7 +154,7 @@ Our current protocol uses a mirror on the sample plane to measure the IRF. The e
 For a scanning microscope, the amplification factor is determined by the setup and the objective but not by the scale of the FOV set for scanning. Therefore, the power of the excitation light on the sample plane and the corresponding area on the sample plane of the APD detector are not affected by the FOV set for scanning. Because the pixel dwell time is fixed, the event count per **pixel** is directly comparable, regardless of the scale of the FOV set for scanning.
 
 ## How to cite this work?
-This toolkit is licensed under Apache-2.0. If you have used any of the codes in your research, please kindly consider citing the following reference study:
+This toolkit is licensed under [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0). If you have used any of the codes in your research, please kindly consider citing the following reference study:
 
 > Chen, C., Piano, V., Alex, A., Han, S.J.Y., Huis in ’t Veld, P.J., Roy, B., Fergle, D., Musacchio, A., and Joglekar, A.P., 2023. The structural flexibility of MAD1 facilitates the assembly of the Mitotic Checkpoint Complex. *Nature Communications*, in press. (bioRxiv preprint: https://www.biorxiv.org/content/10.1101/2022.06.29.498198v1.full)
 

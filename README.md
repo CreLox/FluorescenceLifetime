@@ -1,3 +1,15 @@
+## Table of contents
+- [Introduction on Fluorescence Lifetime Imaging Microscopy (FLIM)](#introduction-on-fluorescence-lifetime-imaging-microscopy-flim)
+- [Specifications](#specifications)
+- [General pipeline](#general-pipeline)
+- [Principles](#principles)
+- [Phasor transform and autofluorescence filtering](#phasor-transform-and-autofluorescence-filtering)
+- [A note on the multi-component exponential fit](#a-note-on-the-multi-component-exponential-fit)
+- [Prepulse and afterpulse in the measured IRF](#prepulse-and-afterpulse-in-the-measured-irf)
+- [Normalization of event counts](#normalization-of-event-counts)
+- [How to cite this work?](#how-to-cite-this-work)
+- [Acknowledgments](#acknowledgments)
+
 ## Introduction on Fluorescence Lifetime Imaging Microscopy (FLIM)
 [PicoQuant knowledgebase](https://www.picoquant.com/scientific/technical-and-application-notes/category/technical_notes_techniques_and_methods/P8)
 

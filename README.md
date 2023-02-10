@@ -159,7 +159,7 @@ Therefore, **one should always be vigilant when translating the parameters deriv
 
 $$\bar{\tau} = \frac{\sum C_i \tau_i}{\sum C_i} = \frac{S}{D(0)}.$$
 
-[As a side note, Leica uses the sum of a continous spectrum of exponential decays for FLIM fitting, which is not implemented here. Related info can be found in [James and Ware, 1986](https://www.sciencedirect.com/science/article/pii/0009261486851077) and [Mérola, Rigler, Holmgren, and Brochon, 1989](https://pubs.acs.org/doi/abs/10.1021/bi00434a038).]
+[As a side note, Leica TauSense uses the sum of a continous spectrum of exponential decays for FLIM fitting, which is not implemented here. Related info can be found in [James and Ware, 1986](https://www.sciencedirect.com/science/article/pii/0009261486851077) and [Mérola, Rigler, Holmgren, and Brochon, 1989](https://pubs.acs.org/doi/abs/10.1021/bi00434a038).]
 
 ## Prepulse and afterpulse in the measured IRF
 Our current protocol uses a mirror on the sample plane to measure the IRF. The emission filter is removed and internal reflection at lenses is observed as a prepulse in the measured IRF. This prepulse is an artifact due to the removal of the emission filter and should be manually removed in postprocessing. Additionally, the APD detector has an afterpulse feature (see [Ziarkash et al., 2018](https://www.nature.com/articles/s41598-018-23398-z)). This is intrinsic to the detector and an integral part of the IRF that should NOT be removed in postprocessing.

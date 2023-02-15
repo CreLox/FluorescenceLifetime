@@ -121,10 +121,10 @@ As a side note, Section 4.2 of [Ranjit, Malacrida, and Gratton, 2018](https://an
 The actual FLIM signal
 
 <p align="center">
-$R(t) =$ the normalized IRF $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ noise).
+$R(t) =$ the normalized IRF $I(t) \circledast$ the (multi-component) exponential decay $D(t)$ (+ background baseline + noise).
 </p>
 
-If we ignore the noise, the phasor transform of the raw time-resolved emission data $R(t)$ is then
+If we ignore the background baseline term and the noise term, the phasor transform of the raw time-resolved emission data $R(t)$ is then
 
 $$\mathcal{P}(\omega, R) = (\int_0^{+\infty} e^{i \omega t}R(t)dt)/(\int_0^{+\infty} R(t)dt),$$
 

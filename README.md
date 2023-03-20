@@ -170,6 +170,17 @@ This toolkit is licensed under [![License](https://img.shields.io/badge/License-
 
 > Chen, C., Piano, V., Alex, A., Han, S.J.Y., Huis in ’t Veld, P.J., Roy, B., Fergle, D., Musacchio, A., and Joglekar, A.P. "The structural flexibility of MAD1 facilitates the assembly of the Mitotic Checkpoint Complex." *Nature Communications* **14** (2023): 1529. (https://doi.org/10.1038/s41467-023-37235-z)
 
+BibTeX:
+```TeX
+@article{chen2023,
+  title={The structural flexibility of MAD1 facilitates the assembly of the Mitotic Checkpoint Complex},
+  author={Chen, Chu and Piano, Valentina and Alex, Amal and Han, Simon JY and Huis in ’t Veld, Pim J and Roy, Babhrubahan and Fergle, Daniel and Musacchio, Andrea and Joglekar, Ajit P},
+  journal={Nature Communications},
+  volume={14},
+  pages={1529},
+  year={2023}
+}
+```
 
 ## Acknowledgments
 I would like to thank Dr. J. Damon Hoff (the SMART Center at the Univerisity of Michigan, Ann Arbor) for his suggestions on the manual and his ground-laying contributions to scripts for parsing raw data files.

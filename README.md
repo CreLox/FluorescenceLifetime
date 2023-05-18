@@ -100,7 +100,7 @@ $$\mathcal{P}(\omega, D) = (\int_0^{+\infty} e^{i \omega t}D(t)dt)/(\int_0^{+\in
 
 On the complex plane, the corresponding phasor $\frac{1}{1+\omega^2\tau^2} + \frac{\omega\tau}{1+\omega^2\tau^2}i$ is distributed on the **universal semicircle**
 
-$$|z-1/2| = 1/2, \operatorname{Im}(z)>0.$$
+$$|z-1/2| = 1/2, \text{Im}(z)>0.$$
 
 For an ensemble of fluorophores with different exponential decay lifetimes, it is easy to derive that the phasor is a linear combination of the phasors of the composing species $\mathcal{P}(\omega, D_m), m = 1, 2, ..., M$, weighted by their corresponding **fractional intensity**:
 
